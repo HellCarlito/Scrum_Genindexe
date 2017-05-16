@@ -46,9 +46,8 @@ public class CustomerBaseTest
 	public void testAddCustomer()
 	{
 		aNewCustomer = new Customer ("Parrots Academy", "London");
-		anotherCustomer = new Customer ("Universite", "Poitiers");
+		anotherCustomer = new Customer ("Parrots Academy", "Newcastle");
 		assertEquals(aBase.addCustomer(aNewCustomer),false);
 		assertEquals(aBase.addCustomer(anotherCustomer),true);
 	}
-
 }

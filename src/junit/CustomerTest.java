@@ -8,7 +8,7 @@ import core.CustomerBase;
 
 public class CustomerTest
 {
-	private Customer c1,c2;
+	private Customer c1;
 
 	/**
 	 * Initialize the customer with the name "Parrots Academy" and the town London
@@ -25,16 +25,6 @@ public class CustomerTest
 	 */
 	@After
 	public void tearDown() throws Exception {
-	}
-
-	/**
-	 * Method testCustomerEmpty
-	 */
-	@Test
-	public void testCustomerEmpty()
-	{
-		Customer c2 = new Customer("", "");
-		assertFalse(c2.getEmpty());
 	}
 	
 	/**

@@ -36,9 +36,9 @@ public class Customer
    */
   public Customer(String n, String t)
   {
-	name = word.capitalize(n);
-	town = word.capitalize(t);
-	orders = new ArrayList<Order>();
+	  name = word.capitalize(n);
+	  town = word.capitalize(t);
+	  orders = new ArrayList<Order>();
   }
 
   /**
@@ -52,5 +52,5 @@ public class Customer
 
   public final List<Order> getOrders() {
     return orders;
-  }
+  }	  
 }
