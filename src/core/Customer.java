@@ -60,7 +60,7 @@ class Customer {
    */
   public boolean alreadyCustomer(String n, String t)
   {
-	  return true;
+	  return true; 
   }
 
 }
