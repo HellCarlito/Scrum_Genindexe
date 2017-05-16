@@ -8,51 +8,53 @@ public class FormNewCustomer extends JPanel {
 	//Définition des attributs pour le formulaire
 	
 	//Formulaire des informations propres au client
-	private JLabel labelNewCustomer = new JLabel("Créer un nouveau client : ");
-	private JLabel labelProfessionnal = new JLabel("Professionnel* : ");
+	private JLabel labelNewCustomer = new JLabel("Create a new customer : ");
+	private JLabel labelProfessionnal = new JLabel("Professionnal* : ");
 	private JPanel choixPro = new JPanel(new GridLayout(1,2));
-	private JRadioButton choixOui = new JRadioButton("Oui");
-	private JRadioButton choixNon = new JRadioButton("Non");
-	private JLabel labelName = new JLabel ("Nom* : ");
+	private ButtonGroup bg = new ButtonGroup();
+	private JRadioButton choixOui = new JRadioButton("Yes");
+	private JRadioButton choixNon = new JRadioButton("No");
+	private JLabel labelName = new JLabel ("Name * : ");
 	private JTextField textName = new JTextField();
-	private JLabel labelCorporateName = new JLabel ("Raison sociale : ");
+	private JLabel labelCorporateName = new JLabel ("Corporate name : ");
 	private JTextField textCorporateName = new JTextField();
-	private JLabel labelTown = new JLabel("Ville* : ");
+	private JLabel labelTown = new JLabel("Town * : ");
 	private JTextField textTown = new JTextField();
-	private JLabel labelPhoneNumber = new JLabel("Téléphone* : ");
+	private JLabel labelPhoneNumber = new JLabel("Phone number * : ");
 	private JTextField textPhoneNumber = new JTextField();
-	private JLabel labelFaxNumber = new JLabel("Fax* : ");
+	private JLabel labelFaxNumber = new JLabel("Fax number * : ");
 	private JTextField textFaxNumber = new JTextField();
-	private JLabel labelCellPhone = new JLabel("Téléphone portable* : ");
+	private JLabel labelCellPhone = new JLabel("Cell phone * : ");
 	private JTextField textCellPhone = new JTextField ();
 	
 	//Formulaire des informations de paiement (uniquement pour les professionnels)
-	private JLabel labelPayment = new JLabel ("Paiement : ");
-	private JLabel labelInvoicingAddress = new JLabel("Adresse de facturation : ");
+	private JLabel labelPayment = new JLabel ("Payment : ");
+	private JLabel labelInvoicingAddress = new JLabel("Invoicing address : ");
 	private JTextField textInvoicingAddress = new JTextField();
-	private JLabel labelInvoicingContact = new JLabel("Nom de facturation : ");
+	private JLabel labelInvoicingContact = new JLabel("Invoicing contact : ");
 	private JTextField textInvoicingContact = new JTextField();
 	
 	//Formulaire des informations de création de compte web (uniquement pour les professionnels)
-	private JLabel labelInternetServices = new JLabel ("Services web : ");
-	private JLabel labelLogin = new JLabel ("Identifiant : ");
+	private JLabel labelInternetServices = new JLabel ("Internet services : ");
+	private JLabel labelLogin = new JLabel ("Login : ");
 	private JTextField textLogin = new JTextField ();
-	private JLabel labelPassword = new JLabel ("Mot de passe : ");
+	private JLabel labelPassword = new JLabel ("Password : ");
 	private JTextField textPassword = new JTextField();
-	private JLabel labelEmail = new JLabel ("Email : ");
+	private JLabel labelEmail = new JLabel ("Mail : ");
 	private JTextField textEmail = new JTextField();
 	
-	private JLabel labelChamps = new JLabel("* : champs obligatoires");
+	//Information about mandatory fields
+	private JLabel labelChamps = new JLabel("* : mandatory fields");
 	
-	private JButton buttonSubmit = new JButton ("Valider");
-	
-	
-	
+	//Button to submit the information
+	private JButton buttonSubmit = new JButton ("Submit");
+		
 	/**
 	 * Constructeur
 	 */
 	public FormNewCustomer() {
 		
+			//Definition of fonts and colors 
 	        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
 	        labelNewCustomer.setForeground(new Color(89,148,60));
 	        labelProfessionnal.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
@@ -96,6 +98,8 @@ public class FormNewCustomer extends JPanel {
 	        buttonSubmit.setBackground(new Color(89,148,60));
 	        
 	        //Ajout des radio boutons au panel Choix
+	        bg.add(choixOui);
+	        bg.add(choixNon);
 	        choixPro.add(choixOui);
 	        choixPro.add(choixNon);
 	        
@@ -261,13 +265,65 @@ public class FormNewCustomer extends JPanel {
 	        this.add(buttonSubmit, c);
 	}
 
-	public String getName(){		
+	//Getters
+	public JTextField getTextName(){		
 
-		
+		return textName;
 	}
 	
-	public static void main(String[] args){
-		new MainWindow(){{setContent(new FormNewCustomer());}};
+	public JTextField getTextCorporateName(){		
+
+		return textCorporateName;
+	}
+	
+	public JTextField getTextTown(){		
+
+		return textTown;
+	}
+	
+	public JTextField getTextPhoneNumber(){		
+
+		return textPhoneNumber;
+	}
+	
+	public JTextField getTextFaxNumber(){		
+
+		return textFaxNumber;
+	}
+	
+	public JTextField getTextCellPhone(){		
+
+		return textCellPhone;
+	}
+	
+	public JTextField getTextInvoicingAddress(){		
+
+		return textInvoicingAddress;
+	}
+	
+	public JTextField getTextInvoicingContact(){		
+
+		return textInvoicingContact;
+	}
+	
+	public JTextField getTextLogin(){		
+
+		return textLogin;
+	}
+	
+	public JTextField getTextPassword(){		
+
+		return textPassword;
+	}
+	
+	public JTextField getTextEmail(){		
+
+		return textEmail;
+	}
+	
+	public JButton getButtonSubmit(){		
+
+		return buttonSubmit;
 	}
 	
 }
