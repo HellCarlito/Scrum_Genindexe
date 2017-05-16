@@ -1,6 +1,8 @@
-package hci;
+package hci.CreateOrder;
 
 import core.Customer;
+import core.Sample;
+import hci.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,9 +26,12 @@ public class ViewCreateOrder extends JPanel{
 
     private HashMap<Customer, JButton> buttonsCustomer;
 
-    public ViewCreateOrder(ArrayList<Customer> customers) {
-        buttonsCustomer = new HashMap<>();
+    private HashMap<Sample,JButton> buttonsSample;
 
+    public ViewCreateOrder(ArrayList<Customer> customers) {
+        buttonsSample = new HashMap<>();
+
+        buttonsCustomer = new HashMap<>();
         for (Customer c:customers) {
             buttonsCustomer.put(c, new JButton(c.getName()+", "+c.getTown()){{
                 setBackground(Color.WHITE);
@@ -55,7 +60,7 @@ public class ViewCreateOrder extends JPanel{
         } );
 
         areaSample = new JPanel();
-        areaSample.setLayout(new BoxLayout(areaSample, BoxLayout.PAGE_AXIS));
+        areaSample.setLayout(new GridBagLayout());
 
         addSample = new JButton("Ajout échantillon");
 
@@ -93,24 +98,37 @@ public class ViewCreateOrder extends JPanel{
 
         c.gridy = 4;
         this.add(validate, c);
+    }
 
+    public void updateSampleList(){
+
+
+        areaSample.removeAll();
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridy = 0;
+        buttonsSample.forEach((s,b) -> {
+            c.gridx = 0;
+            areaSample.add(new JLabel(""+s.getIdSample()), c);
+            c.gridx = 1;
+            areaSample.add(b, c);
+        });
     }
 
     public static void main(String[] args){
         new MainWindow(){{setContent(new ViewCreateOrder(
                 new ArrayList<Customer>(){{
-                    add(new Customer("PG", "Poitiers"));
-                    add(new Customer("Allan", "bureau"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
-                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("PG", "Poitiers"));
+//                    add(new Customer("Allan", "bureau"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
+//                    add(new Customer("Annie", "adaland"));
                 }}
         ));}};
     }
