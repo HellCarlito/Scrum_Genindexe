@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class FormNewCustomer extends JPanel {
 
-	//Définition des attributs pour le formulaire
+	//Dï¿½finition des attributs pour le formulaire
 	
 	//Formulaire des informations propres au client
-	private JLabel labelNewCustomer = new JLabel("Créer un nouveau client : ");
+	private JLabel labelNewCustomer = new JLabel("Crï¿½er un nouveau client : ");
 	private JLabel labelProfessionnal = new JLabel("Professionnel* : ");
 	private JPanel choixPro = new JPanel(new GridLayout(1,2));
 	private JRadioButton choixOui = new JRadioButton("Oui");
@@ -19,11 +19,11 @@ public class FormNewCustomer extends JPanel {
 	private JTextField textCorporateName = new JTextField();
 	private JLabel labelTown = new JLabel("Ville* : ");
 	private JTextField textTown = new JTextField();
-	private JLabel labelPhoneNumber = new JLabel("Téléphone* : ");
+	private JLabel labelPhoneNumber = new JLabel("Tï¿½lï¿½phone* : ");
 	private JTextField textPhoneNumber = new JTextField();
 	private JLabel labelFaxNumber = new JLabel("Fax* : ");
 	private JTextField textFaxNumber = new JTextField();
-	private JLabel labelCellPhone = new JLabel("Téléphone portable* : ");
+	private JLabel labelCellPhone = new JLabel("Tï¿½lï¿½phone portable* : ");
 	private JTextField textCellPhone = new JTextField ();
 	
 	//Formulaire des informations de paiement (uniquement pour les professionnels)
@@ -33,7 +33,7 @@ public class FormNewCustomer extends JPanel {
 	private JLabel labelInvoicingContact = new JLabel("Nom de facturation : ");
 	private JTextField textInvoicingContact = new JTextField();
 	
-	//Formulaire des informations de création de compte web (uniquement pour les professionnels)
+	//Formulaire des informations de crï¿½ation de compte web (uniquement pour les professionnels)
 	private JLabel labelInternetServices = new JLabel ("Services web : ");
 	private JLabel labelLogin = new JLabel ("Identifiant : ");
 	private JTextField textLogin = new JTextField ();
@@ -90,7 +90,7 @@ public class FormNewCustomer extends JPanel {
 	        labelChamps.setForeground(new Color(255,0,0));
 	        
 	        
-			//Définition de la police, du font et de la couleur du text ou des boutons
+			//Dï¿½finition de la police, du font et de la couleur du text ou des boutons
 	        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 	        buttonSubmit.setForeground(new Color(255,255,255));
 	        buttonSubmit.setBackground(new Color(89,148,60));
@@ -99,7 +99,7 @@ public class FormNewCustomer extends JPanel {
 	        choixPro.add(choixOui);
 	        choixPro.add(choixNon);
 	        
-	        //Création d'un gridbaglayout
+	        //Crï¿½ation d'un gridbaglayout
 	        this.setLayout(new GridBagLayout());
 	        GridBagConstraints c = new GridBagConstraints();
 
@@ -261,10 +261,6 @@ public class FormNewCustomer extends JPanel {
 	        this.add(buttonSubmit, c);
 	}
 
-	public String getName(){		
-
-		
-	}
 	
 	public static void main(String[] args){
 		new MainWindow(){{setContent(new FormNewCustomer());}};
