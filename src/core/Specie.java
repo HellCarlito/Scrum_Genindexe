@@ -1,8 +1,6 @@
 package core;
 
-import java.util.*;
-
-class Specie {
+public class Specie {
   /**
    * Name of the specie
    */
