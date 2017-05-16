@@ -2,7 +2,6 @@ package core;
 
 import core.Order;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import core.Customer;
@@ -19,8 +18,6 @@ public class Secretary {
 	private Integer ID;
 	private Order order;
 	private Customer customer;
-	private CustomerBase base;
-	private ArrayList<Customer> bdd;
 	/**
 	 * This is the constructor of the Secretary
 	 * @param id
@@ -32,14 +29,16 @@ public class Secretary {
 		this.name= nom;
 		this.surname = prenom;
 	}
+	
+	
 	/**
 	 * This method allows to create an order
-	 * @param customer : the customer selected
-	 * @param samples : the samples
 	 */
 	public void createOrder(Customer customer, List<Sample> samples){
 		order = new Order(customer, samples);
 		customer.addOrder(order);
+		
 	}
+
 	
 }
