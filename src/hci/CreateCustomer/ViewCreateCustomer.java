@@ -1,6 +1,9 @@
 package hci.CreateCustomer;
 
 import javax.swing.*;
+
+import hci.MainWindow;
+
 import java.awt.*;
 
 public class ViewCreateCustomer extends JPanel{
@@ -333,5 +336,10 @@ public class ViewCreateCustomer extends JPanel{
 			return choixNon;
 		}
 		
+		
+		public static void main(String[] args){
+			MainWindow w = new MainWindow();
+			w.setContent(new ViewCreateCustomer());
+		}
 	}
 
