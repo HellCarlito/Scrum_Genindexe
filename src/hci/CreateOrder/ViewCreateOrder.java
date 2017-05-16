@@ -114,14 +114,6 @@ public class ViewCreateOrder extends JPanel{
         });
     }
 
-    public JPanel getSelectionCustomer() {
-        return selectionCustomer;
-    }
-
-    public JPanel getAreaSample() {
-        return areaSample;
-    }
-
     public static void main(String[] args){
         new MainWindow(){{setContent(new ViewCreateOrder(
                 new ArrayList<Customer>(){{
@@ -140,15 +132,12 @@ public class ViewCreateOrder extends JPanel{
                 }}
         ));}};
     }
+
+    public JPanel getSelectionCustomer() {
+        return selectionCustomer;
+    }
+
+    public JPanel getAreaSample() {
+        return areaSample;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
