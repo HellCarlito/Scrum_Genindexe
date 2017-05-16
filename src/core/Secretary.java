@@ -39,6 +39,7 @@ public class Secretary {
 	 */
 	public void createOrder(Customer customer, List<Sample> samples){
 		order = new Order(customer, samples);
+		customer.addOrder(order);
 	}
 	
 }
