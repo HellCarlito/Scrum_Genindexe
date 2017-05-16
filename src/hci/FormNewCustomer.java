@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class FormNewCustomer extends JPanel {
 
-	//Définition des attributs pour le formulaire
+	//Dï¿½finition des attributs pour le formulaire
 	
 	//Formulaire des informations propres au client
 	private JLabel labelNewCustomer = new JLabel("Create a new customer : ");
@@ -92,7 +92,7 @@ public class FormNewCustomer extends JPanel {
 	        labelChamps.setForeground(new Color(255,0,0));
 	        
 	        
-			//Définition de la police, du font et de la couleur du text ou des boutons
+			//Dï¿½finition de la police, du font et de la couleur du text ou des boutons
 	        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 	        buttonSubmit.setForeground(new Color(255,255,255));
 	        buttonSubmit.setBackground(new Color(89,148,60));
@@ -103,7 +103,7 @@ public class FormNewCustomer extends JPanel {
 	        choixPro.add(choixOui);
 	        choixPro.add(choixNon);
 	        
-	        //Création d'un gridbaglayout
+	        //Crï¿½ation d'un gridbaglayout
 	        this.setLayout(new GridBagLayout());
 	        GridBagConstraints c = new GridBagConstraints();
 
@@ -324,6 +324,14 @@ public class FormNewCustomer extends JPanel {
 	public JButton getButtonSubmit(){		
 
 		return buttonSubmit;
+	}
+	
+	public JRadioButton getChoixOui(){
+		return choixOui;
+	}
+	
+	public JRadioButton getChoixNon(){
+		return choixNon;
 	}
 	
 }
