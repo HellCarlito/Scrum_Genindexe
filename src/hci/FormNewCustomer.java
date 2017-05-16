@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class FormNewCustomer extends JPanel {
 
-	//Dï¿½finition des attributs pour le formulaire
+	//Definition of attributes for form
 	
-	//Formulaire des informations propres au client
+	//Form for customer information
 	private JLabel labelNewCustomer = new JLabel("Create a new customer : ");
-	private JLabel labelProfessionnal = new JLabel("Professionnal* : ");
+	private JLabel labelProfessional = new JLabel("Professional* : ");
 	private JPanel choixPro = new JPanel(new GridLayout(1,2));
 	private ButtonGroup bg = new ButtonGroup();
 	private JRadioButton choixOui = new JRadioButton("Yes");
@@ -27,14 +27,14 @@ public class FormNewCustomer extends JPanel {
 	private JLabel labelCellPhone = new JLabel("Cell phone * : ");
 	private JTextField textCellPhone = new JTextField ();
 	
-	//Formulaire des informations de paiement (uniquement pour les professionnels)
+	//Payment form (for professional only)
 	private JLabel labelPayment = new JLabel ("Payment : ");
 	private JLabel labelInvoicingAddress = new JLabel("Invoicing address : ");
 	private JTextField textInvoicingAddress = new JTextField();
 	private JLabel labelInvoicingContact = new JLabel("Invoicing contact : ");
 	private JTextField textInvoicingContact = new JTextField();
 	
-	//Formulaire des informations de création de compte web (uniquement pour les professionnels)
+	//Internet services form (for professional only)
 	private JLabel labelInternetServices = new JLabel ("Internet services : ");
 	private JLabel labelLogin = new JLabel ("Login : ");
 	private JTextField textLogin = new JTextField ();
@@ -57,8 +57,8 @@ public class FormNewCustomer extends JPanel {
 			//Definition of fonts and colors 
 	        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
 	        labelNewCustomer.setForeground(new Color(89,148,60));
-	        labelProfessionnal.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
-	        labelProfessionnal.setForeground(new Color(89,148,60));
+	        labelProfessional.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
+	        labelProfessional.setForeground(new Color(89,148,60));
 	        labelName.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
 	        labelName.setForeground(new Color(89,148,60));
 	        labelCorporateName.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
@@ -92,22 +92,22 @@ public class FormNewCustomer extends JPanel {
 	        labelChamps.setForeground(new Color(255,0,0));
 	        
 	        
-			//Dï¿½finition de la police, du font et de la couleur du text ou des boutons
+			//Definition of font, foreground and background 
 	        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 	        buttonSubmit.setForeground(new Color(255,255,255));
 	        buttonSubmit.setBackground(new Color(89,148,60));
 	        
-	        //Ajout des radio boutons au panel Choix
+	        //Add radiobutton to panel choixPro
 	        bg.add(choixOui);
 	        bg.add(choixNon);
 	        choixPro.add(choixOui);
 	        choixPro.add(choixNon);
 	        
-	        //Crï¿½ation d'un gridbaglayout
+	        //Creation of a gridbaglayout
 	        this.setLayout(new GridBagLayout());
 	        GridBagConstraints c = new GridBagConstraints();
 
-	        //Position des labels
+	        //Position of labels
 	        c.weighty = 1;
 	        c.weightx = 1;
 	        c.ipady = 30;
@@ -115,12 +115,11 @@ public class FormNewCustomer extends JPanel {
 	        c.gridx = 1;
 	        c.gridy = 1;
 	        this.add(labelNewCustomer, c);
-	        //c.anchor = GridBagConstraints.CENTER;
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 1;
 	        c.gridy = 2;
-	        this.add(labelProfessionnal, c);
+	        this.add(labelProfessional, c);
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 1;
@@ -192,14 +191,14 @@ public class FormNewCustomer extends JPanel {
 	        c.gridy = 19;
 	        this.add(labelChamps, c);
 	        
-	        //Position de la checkbox
+	        //Position of checkbox
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 2;
 	        c.gridy = 2;
 	        this.add(choixPro, c);
 	        
-	        //Position des zones de texte
+	        //Position of text field
 	        c.ipady = 10;
 	        c.ipadx = 300;
 	        c.gridx = 2;
@@ -256,7 +255,7 @@ public class FormNewCustomer extends JPanel {
 	        c.gridy = 17;
 	        this.add(textEmail, c);
 	        
-	        //Position du bouton
+	        //Position of button
 	        c.ipady = 50;
 	        c.ipadx = 90;
 	        c.gridx = 4;
