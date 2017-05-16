@@ -19,8 +19,9 @@ public class Order {
   /**
    * Constructor for the core.Order
    */
-  public Order(Customer customer) {
+  public Order(Customer customer,List<Sample> s) {
 	this.customer = customer;
+	this.samples = s;
 	status = OrderStatus.inProgress;
   }
 
