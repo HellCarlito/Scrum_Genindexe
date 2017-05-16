@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Chloé
- * 
- */
-package junit;
