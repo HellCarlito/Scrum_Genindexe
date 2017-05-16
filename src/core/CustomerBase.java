@@ -1,6 +1,7 @@
 package core;
 import java.util.ArrayList;
 import core.Customer;
+import item.Item;
 
 public class CustomerBase
 {
@@ -29,7 +30,15 @@ public class CustomerBase
 	 */
 	public boolean alreadyCustomer(Customer aCustomer)
 	{
-		
+		boolean trouve = false;
+		for (Customer customer : getCustomers())
+    	{
+			if (aCustomer.getName()==customer.getName() && aCustomer.getTown()==customer.getTown())
+			{
+				trouve=true;
+			}
+    	}
+		return trouve;
 	}
 	/**
 	 * Add a customer if he is not already a client.

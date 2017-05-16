@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import core.Customer;
+import core.CustomerBase;
 
 public class CustomerTest
 {
@@ -46,15 +47,4 @@ public class CustomerTest
 		assertEquals(c1.getName(), "Parrots Academy");
 		assertEquals(c1.getTown(), "London");
 	}
-	
-	/**
-	 * Method testAlreadyCustomer
-	 * <p>test the constructor with the setUp value</p>
-	 */
-	@Test
-	public void testAlreadyCustomer()
-	{
-		assertEquals(c1.alreadyCustomer("Parrots Academy", "London"),true);
-	}
-
 }
