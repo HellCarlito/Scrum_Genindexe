@@ -1,7 +1,6 @@
 package hci.CreateCustomer;
 
 import javax.swing.*;
-
 import hci.MainWindow;
 
 import java.awt.*;
@@ -51,6 +50,7 @@ public class ViewCreateCustomer extends JPanel{
 		
 		//Button to submit the information
 		private JButton buttonSubmit = new JButton ("Submit");
+		private ControlerCreateCustomer evt;
 			
 		/**
 		 * Constructor
@@ -99,6 +99,10 @@ public class ViewCreateCustomer extends JPanel{
 		        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 		        buttonSubmit.setForeground(new Color(255,255,255));
 		        buttonSubmit.setBackground(new Color(89,148,60));
+		        
+		        //Listeners for buttons action
+		        evt = new ControlerCreateCustomer(this);
+		        buttonSubmit.addMouseListener(evt);
 		        
 		        //Add radiobutton to panel choixPro
 		        bg.add(choixOui);

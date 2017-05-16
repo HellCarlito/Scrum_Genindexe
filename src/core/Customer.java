@@ -113,7 +113,7 @@ public class Customer
 	  professional = pro;
 	  name = word.capitalize(n);
 	  town = word.capitalize(t);
-	  corporate = word.capitalize(c);
+	  corporate = c;
 	  phoneNumber = p;
 	  fax = f;
 	  cellNumber = cell;
@@ -145,10 +145,10 @@ public class Customer
     return orders;
   }
   
-  public boolean getMandatory(String n, String t, String p, String f, String cell)
+  public static boolean getMandatory(String n, String t, String p, String f, String cell)
   {
 	  boolean filled=false;
-	  if (!n.isEmpty() && !t.isEmpty() && !p.isEmpty() && !f.isEmpty() && !cell.isEmpty())
+	  if ((!n.isEmpty()) && (!t.isEmpty()) && (!p.isEmpty()) && (!f.isEmpty()) && (!cell.isEmpty()))
 	  {
 		  filled=true;
 	  }

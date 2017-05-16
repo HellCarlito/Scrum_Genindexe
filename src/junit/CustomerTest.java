@@ -8,7 +8,7 @@ import core.CustomerBase;
 
 public class CustomerTest
 {
-	private Customer c1;
+	private Customer c1,c2;
 
 	/**
 	 * Initialize the customer with the name "Parrots Academy" and the town London
@@ -36,5 +36,16 @@ public class CustomerTest
 	{
 		assertEquals(c1.getName(), "Parrots Academy");
 		assertEquals(c1.getTown(), "London");
+	}
+	
+	/**
+	 * Method testCustomer
+	 * <p>test the constructor with the setUp value</p>
+	 */
+	@Test
+	public void testGetMandatory()
+	{
+		assertEquals(c2.getMandatory("hi","hjkl","vyuh","gzu","jk"),true);
+		assertEquals(c2.getMandatory("hi","hjkl","","","jk"),false);
 	}
 }
