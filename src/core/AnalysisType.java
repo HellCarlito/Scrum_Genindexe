@@ -6,4 +6,5 @@ package core;
 public enum AnalysisType {
     Sexing,
     Scrapie
+
 }

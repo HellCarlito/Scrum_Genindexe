@@ -80,7 +80,11 @@ public class Sample {
     return order;
   }
 
-  /**
+    public Specie getSpecie() {
+        return specie;
+    }
+
+    /**
    * States if the sample has been completely analysed :
    * 	- the result is known and validated
    * 	- or, after three attempts, it is not readable

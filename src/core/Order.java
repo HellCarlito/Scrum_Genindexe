@@ -16,6 +16,10 @@ public class Order {
    */
   private OrderStatus status = OrderStatus.inProgress;
 
+  public Order(){
+
+  }
+
   /**
    * Constructor for the core.Order
    */
@@ -29,6 +33,10 @@ public class Order {
    * List of samples to analyse
    */
   private List<Sample> samples;
+
+  public void setCustomer(Customer c){
+      this.customer = c;
+  }
 
   public final OrderStatus getStatus() {
     return status;

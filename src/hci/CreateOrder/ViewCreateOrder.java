@@ -25,7 +25,6 @@ public class ViewCreateOrder extends JPanel{
     private Customer selectedC;
 
     private HashMap<Customer, JButton> buttonsCustomer;
-
     private HashMap<Sample,JButton> buttonsSample;
 
     public ViewCreateOrder(ArrayList<Customer> customers) {
@@ -39,10 +38,10 @@ public class ViewCreateOrder extends JPanel{
                 setEnabled(selectedC!=c);}});
         }
 
-        title = new JLabel("Création d'un ordre d'analyses");
+        title = new JLabel("Creation of an order");
         title.setFont(new Font("sans serif", Font.PLAIN, 24));
 
-        selectedCustomer = new JLabel("Veuillez sélectionner un client");
+        selectedCustomer = new JLabel("Please choose a customer");
         selectedCustomer.setForeground(Color.LIGHT_GRAY);
 
         selectionCustomer = new JPanel();
@@ -65,6 +64,7 @@ public class ViewCreateOrder extends JPanel{
         addSample = new JButton("Ajout échantillon");
 
         validate = new JButton("Valider");
+        validate.setEnabled(false);
 
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -101,36 +101,27 @@ public class ViewCreateOrder extends JPanel{
     }
 
     public void updateSampleList(){
-
-
         areaSample.removeAll();
         GridBagConstraints c = new GridBagConstraints();
         c.gridy = 0;
         buttonsSample.forEach((s,b) -> {
             c.gridx = 0;
-            areaSample.add(new JLabel(""+s.getIdSample()), c);
+            areaSample.add(new JLabel(s.getIdSample()+", "+s.getSpecie().getName()+"  "), c);
             c.gridx = 1;
             areaSample.add(b, c);
+            c.gridy++;
         });
+        this.updateUI();
     }
 
-    public static void main(String[] args){
-        new MainWindow(){{setContent(new ViewCreateOrder(
-                new ArrayList<Customer>(){{
-//                    add(new Customer("PG", "Poitiers"));
-//                    add(new Customer("Allan", "bureau"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-//                    add(new Customer("Annie", "adaland"));
-                }}
-        ));}};
+    public void removeSampleToList(Sample sampleToRemove) {
+        buttonsSample.remove(sampleToRemove);
+        updateSampleList();
+    }
+
+    public void addSampleToList(Sample s) {
+        buttonsSample.put(s, new JButton("remove"));
+        updateSampleList();
     }
 
     public JPanel getSelectionCustomer() {
@@ -140,4 +131,42 @@ public class ViewCreateOrder extends JPanel{
     public JPanel getAreaSample() {
         return areaSample;
     }
+
+    public HashMap<Customer, JButton> getButtonsCustomer() {
+        return buttonsCustomer;
+    }
+
+    public HashMap<Sample, JButton> getButtonsSample() {
+        return buttonsSample;
+    }
+
+    public JButton getValidate() {
+        return validate;
+    }
+
+    public JButton getAddSample() {
+        return addSample;
+    }
+
+    public Customer getCustomer() {
+        return selectedC;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.selectedC = customer;
+        selectedCustomer.setText(selectedC.getName()+", "+selectedC.getTown());
+        selectedCustomer.setForeground(Color.DARK_GRAY);
+        validate.setEnabled(true);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
