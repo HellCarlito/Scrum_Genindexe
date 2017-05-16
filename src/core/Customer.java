@@ -14,15 +14,19 @@ public class Customer
   private String name; //Name of the customer
   private String town;//Address (only the town) from the customer
   private String corporate; //The corporate name of the company
-  private int phoneNumber; //The phone number of the customer
-  private int fax; //The fax of the customer
-  private int cellNumber; //The cell phone number of the customer
+  private String phoneNumber; //The phone number of the customer
+  private String fax; //The fax of the customer
+  private String cellNumber; //The cell phone number of the customer
   private String address; //The invoicing address of the company
   private String invoicingName; //The invoicing contact of the company
   private String login; //The login of the costumer for the Internet services
   private String password; //The password of the costumer for the Internet services
   private String email; //The email of the costumer for the Internet services
 
+  public final boolean getProfessional() {
+	  return professional;
+  }
+  
   public final String getName() {
     return name;
   }
@@ -35,15 +39,15 @@ public class Customer
     return corporate;
   }
 
-  public int getPhoneNumber() {
+  public String getPhoneNumber() {
     return phoneNumber;
   }
   
-  public int getFax() {
+  public String getFax() {
 	return fax;
   }
 
-  public int getCellNumber() {
+  public String getCellNumber() {
 	return cellNumber;
   }
   
@@ -67,15 +71,15 @@ public class Customer
 	return email;
   }
   
-  public void setPhoneNumber(int p){
+  public void setPhoneNumber(String p){
 	  phoneNumber =p;
   }
   
-  public void setFax(int f){
+  public void setFax(String f){
 	  fax =f;
   }
   
-  public void setCellNumber(int c){
+  public void setCellNumber(String c){
 	  cellNumber =c;
   }
   
@@ -101,7 +105,7 @@ public class Customer
    * @param n name of the customer
    * @param t town for the customer
    */
-  public Customer(boolean pro,String n, String t, String c, int p, int f, int cell, String ad, String fac,
+  public Customer(boolean pro, String n, String t, String c, String p, String f, String cell, String ad, String fac,
 		  String log, String pass, String mail)
   {
 	  professional = pro;
@@ -137,5 +141,19 @@ public class Customer
 
   public final List<Order> getOrders() {
     return orders;
-  }	  
+  }
+  
+  public boolean getMandatory(String n, String t, String p, String f, String cell)
+  {
+	  boolean filled=false;
+	  if (!n.isEmpty() && !t.isEmpty() && !p.isEmpty() && !f.isEmpty() && !cell.isEmpty())
+	  {
+		  filled=true;
+	  }
+	  else
+	  {
+		  filled=false;
+	  }
+	  return filled;
+  }
 }
