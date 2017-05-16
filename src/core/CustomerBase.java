@@ -34,7 +34,7 @@ public class CustomerBase
 		boolean trouve = false;
 		for (Customer customer : getCustomers())
     	{
-			if (aCustomer.getName()==customer.getName() && aCustomer.getTown()==customer.getTown())
+			if (aCustomer.getName().equals(customer.getName()) && aCustomer.getTown().equals(customer.getTown()))
 			{
 				trouve=true;
 			}
@@ -44,7 +44,8 @@ public class CustomerBase
 	/**
 	 * Add a customer if he is not already a client.
 	 * @param aCustomer
-	 * @return
+	 * @return True if the customer is added
+	 * 			False if the customer is not added (already in the database)
 	 */
 	public boolean addCustomer(Customer aCustomer)
 	{
