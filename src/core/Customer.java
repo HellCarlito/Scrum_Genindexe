@@ -10,6 +10,7 @@ public class Customer
   private List<Order> orders;
   private WordUtils word;
   
+  private boolean professional; //Status of the customer
   private String name; //Name of the customer
   private String town;//Address (only the town) from the customer
   private String corporate; //The corporate name of the company
@@ -100,9 +101,10 @@ public class Customer
    * @param n name of the customer
    * @param t town for the customer
    */
-  public Customer(String n, String t, String c, int p, int f, int cell, String ad, String fac,
+  public Customer(boolean pro,String n, String t, String c, int p, int f, int cell, String ad, String fac,
 		  String log, String pass, String mail)
   {
+	  professional = pro;
 	  name = word.capitalize(n);
 	  town = word.capitalize(t);
 	  corporate = word.capitalize(c);
@@ -114,6 +116,13 @@ public class Customer
 	  login = log;
 	  password = pass;
 	  email = mail;
+	  orders = new ArrayList<Order>();
+  }
+  
+  public Customer(String n, String t)
+  {
+	  name = word.capitalize(n);
+	  town = word.capitalize(t);
 	  orders = new ArrayList<Order>();
   }
 
