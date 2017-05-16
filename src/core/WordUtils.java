@@ -27,4 +27,20 @@ public class WordUtils
 		 }
 		 return  sb.toString();
 	 }
+	 
+	 /**
+	  * Method which verify is a string is empty (true) or not (false).
+	  * 
+	  */
+	 public static boolean empty(String word)
+	 {
+		 if (word.isEmpty())
+		 {
+			 return true;
+		 }
+		 else
+		 {
+			 return false;
+		 }
+	 }
 }
