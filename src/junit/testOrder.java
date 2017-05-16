@@ -30,7 +30,7 @@ public class testOrder {
 		s4 = new Sample(an1, null, ord1);
 		s5 = new Sample(an1, null, ord1);
 		List<Sample> samples = Arrays.asList(s1, s2, s3, s4, s5);
-		cst1 = new Customer("WillyCorp", "Zimbabwe", "s", 1, 2, 3, "s", "s", "s", "s", "s");
+		cst1 = new Customer("WillyCorp", "Zimbabwe");
 		ord1 = new Order(cst1, samples);
 		cst1.addOrder(ord1);
 		// Verify that the 5 samples were added to the order
