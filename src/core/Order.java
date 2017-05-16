@@ -16,6 +16,14 @@ public class Order {
    */
   private OrderStatus status = OrderStatus.inProgress;
 
+    /**
+     * Constructor for the core.Order
+     */
+  public Order(Customer customer) {
+        this.customer = customer;
+        this.samples = new ArrayList<>();
+        status = OrderStatus.inProgress;
+    }
   /**
    * Constructor for the core.Order
    */
