@@ -2,7 +2,10 @@ package core;
 
 import core.Order;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> branch 'master' of https://github.com/HellCarlito/Scrum_Genindexe.git
 import java.util.List;
 
 import core.Customer;
@@ -32,13 +35,25 @@ public class Secretary {
 		this.name= nom;
 		this.surname = prenom;
 	}
+	
+	
 	/**
 	 * This method allows to create an order
+<<<<<<< HEAD
 	 * @param customer : the customer selected
 	 * @param samples : the samples
 	 */
 	public void createOrder(Customer customer, List<Sample> samples){
 		order = new Order(customer, samples);
 	}
+=======
+	 */
+	public void createOrder(Customer customer, List<Sample> samples){
+		order = new Order(customer, samples);
+		customer.addOrder(order);
+		
+	}
+
+>>>>>>> branch 'master' of https://github.com/HellCarlito/Scrum_Genindexe.git
 	
 }
