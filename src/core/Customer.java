@@ -23,6 +23,7 @@ public class Customer
   private String password; //The password of the costumer for the Internet services
   private String email; //The email of the costumer for the Internet services
 
+
   public final boolean getProfessional() {
 	  return professional;
   }
@@ -107,6 +108,7 @@ public class Customer
    */
   public Customer(boolean pro, String n, String t, String c, String p, String f, String cell, String ad, String fac,
 		  String log, String pass, String mail)
+  
   {
 	  professional = pro;
 	  name = word.capitalize(n);

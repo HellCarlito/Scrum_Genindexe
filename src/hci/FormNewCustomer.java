@@ -5,58 +5,60 @@ import java.awt.*;
 
 public class FormNewCustomer extends JPanel {
 
-	//D�finition des attributs pour le formulaire
+	//Definition of attributes for form
 	
-	//Formulaire des informations propres au client
-	private JLabel labelNewCustomer = new JLabel("Cr�er un nouveau client : ");
-	private JLabel labelProfessionnal = new JLabel("Professionnel* : ");
+	//Form for customer information
+	private JLabel labelNewCustomer = new JLabel("Create a new customer : ");
+	private JLabel labelProfessional = new JLabel("Professional* : ");
 	private JPanel choixPro = new JPanel(new GridLayout(1,2));
-	private JRadioButton choixOui = new JRadioButton("Oui");
-	private JRadioButton choixNon = new JRadioButton("Non");
-	private JLabel labelName = new JLabel ("Nom* : ");
+	private ButtonGroup bg = new ButtonGroup();
+	private JRadioButton choixOui = new JRadioButton("Yes");
+	private JRadioButton choixNon = new JRadioButton("No");
+	private JLabel labelName = new JLabel ("Name * : ");
 	private JTextField textName = new JTextField();
-	private JLabel labelCorporateName = new JLabel ("Raison sociale : ");
+	private JLabel labelCorporateName = new JLabel ("Corporate name : ");
 	private JTextField textCorporateName = new JTextField();
-	private JLabel labelTown = new JLabel("Ville* : ");
+	private JLabel labelTown = new JLabel("Town * : ");
 	private JTextField textTown = new JTextField();
-	private JLabel labelPhoneNumber = new JLabel("T�l�phone* : ");
+	private JLabel labelPhoneNumber = new JLabel("Phone number * : ");
 	private JTextField textPhoneNumber = new JTextField();
-	private JLabel labelFaxNumber = new JLabel("Fax* : ");
+	private JLabel labelFaxNumber = new JLabel("Fax number * : ");
 	private JTextField textFaxNumber = new JTextField();
-	private JLabel labelCellPhone = new JLabel("T�l�phone portable* : ");
+	private JLabel labelCellPhone = new JLabel("Cell phone * : ");
 	private JTextField textCellPhone = new JTextField ();
 	
-	//Formulaire des informations de paiement (uniquement pour les professionnels)
-	private JLabel labelPayment = new JLabel ("Paiement : ");
-	private JLabel labelInvoicingAddress = new JLabel("Adresse de facturation : ");
+	//Payment form (for professional only)
+	private JLabel labelPayment = new JLabel ("Payment : ");
+	private JLabel labelInvoicingAddress = new JLabel("Invoicing address : ");
 	private JTextField textInvoicingAddress = new JTextField();
-	private JLabel labelInvoicingContact = new JLabel("Nom de facturation : ");
+	private JLabel labelInvoicingContact = new JLabel("Invoicing contact : ");
 	private JTextField textInvoicingContact = new JTextField();
 	
-	//Formulaire des informations de cr�ation de compte web (uniquement pour les professionnels)
-	private JLabel labelInternetServices = new JLabel ("Services web : ");
-	private JLabel labelLogin = new JLabel ("Identifiant : ");
+	//Internet services form (for professional only)
+	private JLabel labelInternetServices = new JLabel ("Internet services : ");
+	private JLabel labelLogin = new JLabel ("Login : ");
 	private JTextField textLogin = new JTextField ();
-	private JLabel labelPassword = new JLabel ("Mot de passe : ");
+	private JLabel labelPassword = new JLabel ("Password : ");
 	private JTextField textPassword = new JTextField();
-	private JLabel labelEmail = new JLabel ("Email : ");
+	private JLabel labelEmail = new JLabel ("Mail : ");
 	private JTextField textEmail = new JTextField();
 	
-	private JLabel labelChamps = new JLabel("* : champs obligatoires");
+	//Information about mandatory fields
+	private JLabel labelChamps = new JLabel("* : mandatory fields");
 	
-	private JButton buttonSubmit = new JButton ("Valider");
-	
-	
-	
+	//Button to submit the information
+	private JButton buttonSubmit = new JButton ("Submit");
+		
 	/**
 	 * Constructeur
 	 */
 	public FormNewCustomer() {
 		
+			//Definition of fonts and colors 
 	        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
 	        labelNewCustomer.setForeground(new Color(89,148,60));
-	        labelProfessionnal.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
-	        labelProfessionnal.setForeground(new Color(89,148,60));
+	        labelProfessional.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
+	        labelProfessional.setForeground(new Color(89,148,60));
 	        labelName.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
 	        labelName.setForeground(new Color(89,148,60));
 	        labelCorporateName.setFont(new Font("Lucida Fax", Font.PLAIN, 14));
@@ -90,20 +92,22 @@ public class FormNewCustomer extends JPanel {
 	        labelChamps.setForeground(new Color(255,0,0));
 	        
 	        
-			//D�finition de la police, du font et de la couleur du text ou des boutons
+			//Definition of font, foreground and background 
 	        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 	        buttonSubmit.setForeground(new Color(255,255,255));
 	        buttonSubmit.setBackground(new Color(89,148,60));
 	        
-	        //Ajout des radio boutons au panel Choix
+	        //Add radiobutton to panel choixPro
+	        bg.add(choixOui);
+	        bg.add(choixNon);
 	        choixPro.add(choixOui);
 	        choixPro.add(choixNon);
 	        
-	        //Cr�ation d'un gridbaglayout
+	        //Creation of a gridbaglayout
 	        this.setLayout(new GridBagLayout());
 	        GridBagConstraints c = new GridBagConstraints();
 
-	        //Position des labels
+	        //Position of labels
 	        c.weighty = 1;
 	        c.weightx = 1;
 	        c.ipady = 30;
@@ -111,12 +115,11 @@ public class FormNewCustomer extends JPanel {
 	        c.gridx = 1;
 	        c.gridy = 1;
 	        this.add(labelNewCustomer, c);
-	        //c.anchor = GridBagConstraints.CENTER;
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 1;
 	        c.gridy = 2;
-	        this.add(labelProfessionnal, c);
+	        this.add(labelProfessional, c);
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 1;
@@ -188,14 +191,14 @@ public class FormNewCustomer extends JPanel {
 	        c.gridy = 19;
 	        this.add(labelChamps, c);
 	        
-	        //Position de la checkbox
+	        //Position of checkbox
 	        c.ipady = 30;
 	        c.ipadx = 90;
 	        c.gridx = 2;
 	        c.gridy = 2;
 	        this.add(choixPro, c);
 	        
-	        //Position des zones de texte
+	        //Position of text field
 	        c.ipady = 10;
 	        c.ipadx = 300;
 	        c.gridx = 2;
@@ -252,7 +255,7 @@ public class FormNewCustomer extends JPanel {
 	        c.gridy = 17;
 	        this.add(textEmail, c);
 	        
-	        //Position du bouton
+	        //Position of button
 	        c.ipady = 50;
 	        c.ipadx = 90;
 	        c.gridx = 4;
@@ -261,9 +264,73 @@ public class FormNewCustomer extends JPanel {
 	        this.add(buttonSubmit, c);
 	}
 
+	//Getters
+	public JTextField getTextName(){		
+
+		return textName;
+	}
 	
-	public static void main(String[] args){
-		new MainWindow(){{setContent(new FormNewCustomer());}};
+	public JTextField getTextCorporateName(){		
+
+		return textCorporateName;
+	}
+	
+	public JTextField getTextTown(){		
+
+		return textTown;
+	}
+	
+	public JTextField getTextPhoneNumber(){		
+
+		return textPhoneNumber;
+	}
+	
+	public JTextField getTextFaxNumber(){		
+
+		return textFaxNumber;
+	}
+	
+	public JTextField getTextCellPhone(){		
+
+		return textCellPhone;
+	}
+	
+	public JTextField getTextInvoicingAddress(){		
+
+		return textInvoicingAddress;
+	}
+	
+	public JTextField getTextInvoicingContact(){		
+
+		return textInvoicingContact;
+	}
+	
+	public JTextField getTextLogin(){		
+
+		return textLogin;
+	}
+	
+	public JTextField getTextPassword(){		
+
+		return textPassword;
+	}
+	
+	public JTextField getTextEmail(){		
+
+		return textEmail;
+	}
+	
+	public JButton getButtonSubmit(){		
+
+		return buttonSubmit;
+	}
+	
+	public JRadioButton getChoixOui(){
+		return choixOui;
+	}
+	
+	public JRadioButton getChoixNon(){
+		return choixNon;
 	}
 	
 }
