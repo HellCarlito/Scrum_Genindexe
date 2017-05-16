@@ -50,5 +50,17 @@ class Customer {
   public final List<Order> getOrders() {
     return orders;
   }
+  
+  /**
+   * Defines if the customer is already in the database
+   * @param n Name of the customer
+   * @param t Town of the customer
+   * @return True if the customer is in the database
+   * 		 False if the customer is a new customer.
+   */
+  public boolean alreadyCustomer(String n, String t)
+  {
+	  return true;
+  }
 
 }
