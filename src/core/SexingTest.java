@@ -1,6 +1,6 @@
 package core;
 
-class SexingTest extends Analysis {
+public class SexingTest extends Analysis {
   /**
    * Name of the test - the same for all objects of the class
    */
