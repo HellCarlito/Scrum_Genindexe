@@ -1,12 +1,14 @@
 package core;
-
+import core.WordUtils;
 import java.util.*;
 
-public class Customer {
+public class Customer
+{
   /**
    * The different orders for the customer
    */
   private List<Order> orders;
+  private WordUtils word;
 
   /**
    * Name of the customer
@@ -32,9 +34,10 @@ public class Customer {
    * @param n name of the customer
    * @param t town for the customer
    */
-  public Customer(String n, String t) {
-	name = n;
-	town = t;
+  public Customer(String n, String t)
+  {
+	name = word.capitalize(n);
+	town = word.capitalize(t);
 	orders = new ArrayList<Order>();
   }
 
