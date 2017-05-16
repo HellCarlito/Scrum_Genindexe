@@ -1,3 +1,4 @@
+package core;
 
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class Order {
   private OrderStatus status = OrderStatus.inProgress;
 
   /**
-   * Constructor for the Order
+   * Constructor for the core.Order
    */
   public Order(Customer customer) {
 	this.customer = customer;

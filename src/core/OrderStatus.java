@@ -1,3 +1,4 @@
+package core;
 
 /**
  * List of correct values for order status

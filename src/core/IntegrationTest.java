@@ -1,7 +1,9 @@
+package core;
+
 import java.util.*;
 
 /**
- * Write a description of class IntegrationTest here.
+ * Write a description of class core.IntegrationTest here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -18,10 +20,10 @@ public class IntegrationTest
     public ArrayList<Customer> theCustomers;
 
     /**
-     * Constructor for objects of class IntegrationTest
+     * Constructor for objects of class core.IntegrationTest
      * For this test, are created:
-     *      - the Mammals SpecieCategory, the Sheep specie and the ScrapietTest for sheeps
-     *      - the Bird SpecieCategory, the Parrot, Canary and Budgerigar species and 
+     *      - the Mammals core.SpecieCategory, the Sheep specie and the ScrapietTest for sheeps
+     *      - the Bird core.SpecieCategory, the Parrot, Canary and Budgerigar species and
      *      the sexing tests for birds
      *      - the customer "Mrs Rosemary Plumket", in Poitiers, with an order of two canaries (not yet)
      *      - the customer "La Palmyre Zoo" in Royan, with orders for sexing parrots and budgerigars (not yet)
@@ -37,27 +39,27 @@ public class IntegrationTest
         theAnalyses = new ArrayList<Analysis>();
         theCustomers = new ArrayList<Customer>();
         
-        // Customer "Mrs Rosemary Plumket", in Poitiers
+        // core.Customer "Mrs Rosemary Plumket", in Poitiers
         Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");
         theCustomers.add(rose);
-        // Customer "La Palmyre Zoo" in Royan
+        // core.Customer "La Palmyre Zoo" in Royan
         Customer zoo = new Customer("La Palmyre Zoo", "Royan");
         theCustomers.add(zoo);
-        // Customer "M. Tom Brown", in Montmorillon
+        // core.Customer "M. Tom Brown", in Montmorillon
         Customer tom = new Customer("M. Tom Brown", "Montmorillon");
         theCustomers.add(tom);
-        // Customer "M. Paul Cameron", in Parthenay
+        // core.Customer "M. Paul Cameron", in Parthenay
         Customer paul = new Customer("M. Paul Cameron", "Parthenay");
         theCustomers.add(paul);
 
-        // ScrapieTest management
+        // core.ScrapieTest management
         SpecieCategory sc = new SpecieCategory("Mammals");
         theCategories.add(sc);
         Specie s = new Specie("Sheep");
         sc.addSpecie(s);
         ScrapieTest sct = new ScrapieTest(s,354,224);
         theAnalyses.add(sct);
-        // Order for Tom Brown - 24 sheeps, status toAnalyse
+        // core.Order for Tom Brown - 24 sheeps, status toAnalyse
         Order o = new Order(tom);
         tom.addOrder(o);
         ArrayList<Sample> ls = new ArrayList<Sample>();
@@ -65,7 +67,7 @@ public class IntegrationTest
         for (int i=0;i<24;i++) ls.add(new Sample(sct,s,o));
         o.setSamples(ls);
         
-        // RawData results
+        // core.RawData results
         RawData scrapieOk = new RawData (354, 224);
         RawData scrapieDoubt = new RawData (354, 221);
         RawData scrapieNotOk = new RawData (354, 155);
@@ -86,7 +88,7 @@ public class IntegrationTest
             scrValidatedNotSensible.firstRead(true, "Not Sensible");   
             scrValidatedNotSensible.validate(true);      
         
-        // Order for Tom Brown - 36 sheeps, all firstRead, not sensible - order status = completed
+        // core.Order for Tom Brown - 36 sheeps, all firstRead, not sensible - order status = completed
         o = new Order(tom);
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
@@ -97,7 +99,7 @@ public class IntegrationTest
         }
         o.setSamples(ls);
         
-        // Order for Tom Brown - 12 sheeps, ready to analyse - order status = toAnalyse
+        // core.Order for Tom Brown - 12 sheeps, ready to analyse - order status = toAnalyse
         o = new Order(tom);
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
@@ -108,7 +110,7 @@ public class IntegrationTest
         }
         o.setSamples(ls);
         
-        // Order for Tom Brown - 8 sheeps, different status - order status = inAnalysis
+        // core.Order for Tom Brown - 8 sheeps, different status - order status = inAnalysis
         o = new Order(tom);
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
@@ -131,7 +133,7 @@ public class IntegrationTest
         ls.add(sam);
         o.setSamples(ls);
         
-        // Order for Paul Cameron, status in progress (samples are not created yet)
+        // core.Order for Paul Cameron, status in progress (samples are not created yet)
         o = new Order(paul);
         paul.addOrder(o);
             

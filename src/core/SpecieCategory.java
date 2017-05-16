@@ -1,3 +1,4 @@
+package core;
 
 import java.util.*;
 
@@ -13,7 +14,7 @@ class SpecieCategory {
   private String name;
 
   /**
-   * Creates a new SpecieCategory
+   * Creates a new core.SpecieCategory
    */
   public SpecieCategory(String theName) {
 	name = theName;
