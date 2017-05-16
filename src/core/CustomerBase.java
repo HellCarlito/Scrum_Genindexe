@@ -1,7 +1,6 @@
 package core;
 import java.util.ArrayList;
 import core.Customer;
-import item.Item;
 
 public class CustomerBase
 {
@@ -27,6 +26,8 @@ public class CustomerBase
 	
 	/**
 	 * Check if the company has already this customer
+	 * True if the customer is already in the database
+	 * False if the customer is not in the database
 	 */
 	public boolean alreadyCustomer(Customer aCustomer)
 	{
@@ -47,6 +48,16 @@ public class CustomerBase
 	 */
 	public boolean addCustomer(Customer aCustomer)
 	{
-		
+		boolean ajout = false;
+		if (!alreadyCustomer(aCustomer))
+		{
+			this.base.add(aCustomer);
+			ajout=true;
+		}
+		else
+		{
+			ajout=false;
+		}
+		return ajout;
 	}
 }

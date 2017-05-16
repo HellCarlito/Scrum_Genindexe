@@ -33,9 +33,9 @@ public class CustomerBaseTest
 	{
 		aNewCustomer = new Customer ("Parrots Academy", "London");
 		anotherCustomer = new Customer ("Universite", "Poitiers");
-		assertEquals(aBase.alreadyCustomer(aCustomer),true);
-		assertEquals(aBase.alreadyCustomer(aNewCustomer),true);
-		assertEquals(aBase.alreadyCustomer(anotherCustomer),false);
+		assertEquals(true,aBase.alreadyCustomer(aCustomer));
+		assertEquals(true,aBase.alreadyCustomer(aNewCustomer));
+		assertEquals(false,aBase.alreadyCustomer(anotherCustomer));
 	}
 	
 	/**
