@@ -6,7 +6,7 @@ import java.util.*;
  * Describes a sample to be analysed
  * Here, very partial implementation. We can only add a result, and recover the last result
  */
-class Sample {
+public class Sample {
   /**
    * The animal specie for the sample
    */
