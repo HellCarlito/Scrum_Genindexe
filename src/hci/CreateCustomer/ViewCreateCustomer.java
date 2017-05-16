@@ -2,7 +2,7 @@ package hci.CreateCustomer;
 
 import javax.swing.*;
 import hci.MainWindow;
-
+import core.CustomerBase;
 import java.awt.*;
 
 public class ViewCreateCustomer extends JPanel{
@@ -55,7 +55,7 @@ public class ViewCreateCustomer extends JPanel{
 		/**
 		 * Constructor
 		 */
-		public ViewCreateCustomer() {
+		public ViewCreateCustomer(CustomerBase base) {
 			
 				//Definition of fonts and colors 
 		        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -101,7 +101,7 @@ public class ViewCreateCustomer extends JPanel{
 		        buttonSubmit.setBackground(new Color(89,148,60));
 		        
 		        //Listeners for buttons action
-		        evt = new ControlerCreateCustomer(this);
+		        evt = new ControlerCreateCustomer(this,base);
 		        buttonSubmit.addMouseListener(evt);
 		        
 		        //Add radiobutton to panel choixPro
@@ -342,8 +342,9 @@ public class ViewCreateCustomer extends JPanel{
 		
 		
 		public static void main(String[] args){
+			CustomerBase aBase = new CustomerBase();
 			MainWindow w = new MainWindow();
-			w.setContent(new ViewCreateCustomer());
+			w.setContent(new ViewCreateCustomer(aBase));
 		}
 	}
 
