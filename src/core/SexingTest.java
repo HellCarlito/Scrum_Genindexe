@@ -22,7 +22,11 @@ public class SexingTest extends Analysis {
 	femaleValue = new RawData(pFemale, vFemale);
   }
 
-  public Result newResult() {
+    public SexingTest(Specie s) {
+        super(s);
+    }
+
+    public Result newResult() {
 	return new SexingResult();
   }
 

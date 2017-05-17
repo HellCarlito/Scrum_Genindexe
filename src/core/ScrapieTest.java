@@ -29,7 +29,11 @@ public class ScrapieTest extends Analysis {
 	scrapieSensibility = new RawData(pos, val);
   }
 
-  public final RawData getScrapieSensibility() {
+    public ScrapieTest(Specie s) {
+        super(s);
+    }
+
+    public final RawData getScrapieSensibility() {
     return scrapieSensibility;
   }
 
