@@ -59,7 +59,7 @@ public class CustomerBaseTest
 	@Test
 	public void testSignIn()
 	{
-		aNewCustomer = new Customer (true, "Parrots Academy", "London", "yo",
+		aNewCustomer = new Customer (true, "Parrots Academy", "Newcastle", "yo",
 				"1", "2", "3", "na", "ka", "toto", "titi", "hko");
 		aBase.addCustomer(aNewCustomer);
 		assertEquals(aBase.signIn("toto", "titi"), aNewCustomer);

@@ -63,24 +63,30 @@ public class CustomerBase
 	}
 	
 	/**
-	 * Check if the 
+	 * Method to sign in the system
+	 * Check if the login and the password correspond to a customer
 	 */
 	public Customer signIn(String log, String pass)
 	{
-		Customer logCustomer = new Customer ("kjklj", "jlkjlk");
+		Customer logCustomer = new Customer ("", "");
 		boolean trouve = false;
 		for (Customer aCustomer :getCustomers())
 		{
-			if (aCustomer.getLogin().equals(log) && (aCustomer.getPassword().equals(pass)))
+			if (aCustomer.getLogin()!=null && aCustomer.getPassword()!=null)
 			{
-				logCustomer = aCustomer;
-				trouve = true;
+				if (aCustomer.getLogin().equals(log) && (aCustomer.getPassword().equals(pass)))
+				{
+					logCustomer = aCustomer;
+					trouve = true;
+				}
 			}
 		}
-		if (trouve = true)
+		if (trouve == true)
 		{
 			return logCustomer;
-		} else {
+		}
+		else
+		{
 			return null;
 		}
 	}
