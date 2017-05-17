@@ -33,7 +33,7 @@ public class ControlerCreateCustomer extends MouseAdapter
 		 {
     		 boolean erreur = false;
     		 if (aCustomer.getMandatory(vue.getTextName().getText(), vue.getTextTown().getText(), vue.getTextPhoneNumber().getText(),
-    				 vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText()))
+    				 vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(), vue.getTextLogin().getText(), vue.getTextPassword().getText()))
     		 {
     			 boolean professional=false;
     			 if (vue.getChoixOui().isSelected())

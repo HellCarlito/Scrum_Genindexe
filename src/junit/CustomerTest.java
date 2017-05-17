@@ -42,7 +42,7 @@ public class CustomerTest {
      */
     @Test
     public void testGetMandatory() {
-        assertEquals(c2.getMandatory("hi", "hjkl", "vyuh", "gzu", "jk"), true);
-        assertEquals(c2.getMandatory("hi", "hjkl", "", "", "jk"), false);
+        assertEquals(c2.getMandatory("name", "town", "phone", "fax", "cell","login","password"), true);
+        assertEquals(c2.getMandatory("hi", "hjkl", "", "", "jk","",""), false);
     }
 }

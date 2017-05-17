@@ -55,9 +55,9 @@ public class Customer {
         orders = new ArrayList<Order>();
     }
 
-    public static boolean getMandatory(String n, String t, String p, String f, String cell) {
+    public static boolean getMandatory(String name, String town, String phone, String fax, String cell, String login, String password) {
         boolean filled = false;
-        if ((!n.isEmpty()) && (!t.isEmpty()) && (!p.isEmpty()) && (!f.isEmpty()) && (!cell.isEmpty())) {
+        if ((!name.isEmpty()) && (!town.isEmpty()) && (!phone.isEmpty()) && (!fax.isEmpty()) && (!cell.isEmpty()) && (!login.isEmpty()) && (!password.isEmpty())) {
             filled = true;
         } else {
             filled = false;
