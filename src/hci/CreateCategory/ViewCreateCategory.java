@@ -4,7 +4,8 @@ import javax.swing.*;
 import hci.MainWindow;
 import hci.CreateCategory.ControlerCreateCategory;
 import hci.CreateCategory.ViewCreateCategory;
-import core.SpecieCategory;
+import core.CustomerBase;
+import core.IntegrationTest;
 import java.awt.*;
 
 public class ViewCreateCategory extends JPanel{
@@ -13,21 +14,21 @@ public class ViewCreateCategory extends JPanel{
 	//Definition of attributes for form
 	
 	//Form for customer information
-	private JLabel labelNewSpecie = new JLabel("Create a new specie : ");
-	private JLabel labelNameSpecie = new JLabel("Name of the specie : ");
-	private JTextField textNameSpecie = new JTextField();
+	private JLabel labelNewCategory = new JLabel("Create a new category of specie : ");
+	private JLabel labelNameCategory = new JLabel("Name of the category : ");
+	private JTextField textNameCategory = new JTextField();
 	private JButton buttonSubmit = new JButton("Submit");
 	
 	/**
 	 * Constructor
 	 */
-	public ViewCreateCategory(SpecieCategory base){
+	public ViewCreateCategory(IntegrationTest base){
 		
 		//Definition of fonts and colors 
-        labelNewSpecie.setFont(new Font("Lucida Fax", Font.BOLD, 20));
-        labelNewSpecie.setForeground(new Color(89,148,60));
-        labelNameSpecie.setFont(new Font("Lucida Fax", Font.BOLD, 20));
-        labelNameSpecie.setForeground(new Color(89,148,60));
+        labelNewCategory.setFont(new Font("Lucida Fax", Font.BOLD, 20));
+        labelNewCategory.setForeground(new Color(89,148,60));
+        labelNameCategory.setFont(new Font("Lucida Fax", Font.BOLD, 20));
+        labelNameCategory.setForeground(new Color(89,148,60));
         
       //Definition of font, foreground and background 
         buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
@@ -35,8 +36,8 @@ public class ViewCreateCategory extends JPanel{
         buttonSubmit.setBackground(new Color(89,148,60));
         
         //Listeners for buttons action
-     //   evt = new ControlerCreateCategory(this,base);
-     //  buttonSubmit.addMouseListener(evt);
+       evt = new ControlerCreateCategory(this,base);
+       buttonSubmit.addMouseListener(evt);
         
         //Creation of a gridbaglayout
         this.setLayout(new GridBagLayout());
@@ -49,19 +50,19 @@ public class ViewCreateCategory extends JPanel{
         c.ipadx = 90;
         c.gridx = 2;
         c.gridy = 1;
-        this.add(labelNewSpecie, c);
+        this.add(labelNewCategory, c);
         c.ipady = 30;
         c.ipadx = 90;
         c.gridx = 1;
         c.gridy = 2;
-        this.add(labelNameSpecie, c);
+        this.add(labelNameCategory, c);
         
       //Position of text field
         c.ipady = 10;
         c.ipadx = 300;
         c.gridx = 2;
         c.gridy = 2;
-        this.add(textNameSpecie, c);
+        this.add(textNameCategory, c);
         
       //Position of button
         c.ipady = 30;
@@ -74,7 +75,7 @@ public class ViewCreateCategory extends JPanel{
 	
 	//Getters
 	public JTextField getTextNameCatSpecie(){		
-		return textNameSpecie;
+		return textNameCategory;
 	}
 	
 	public JButton getButtonSubmit(){		
@@ -83,8 +84,9 @@ public class ViewCreateCategory extends JPanel{
 	}
 	
 	public static void main(String[] args){
+		IntegrationTest aBase = new IntegrationTest();
 		MainWindow w = new MainWindow();
-		//w.setContent(new ViewCreateCategory(aBase));
+		w.setContent(new ViewCreateCategory(aBase));
 	}
 
 }
