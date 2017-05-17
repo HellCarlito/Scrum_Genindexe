@@ -24,6 +24,7 @@ public class ViewCreateScrapieTest extends JPanel {
 
     public ViewCreateScrapieTest(IntegrationTest integrationTest) {
 
+        // Create new arrayList and parse Specie category to get all species
         species = new ArrayList<>();
         for (SpecieCategory specieCategory : integrationTest.theCategories) {
             for (Specie s : specieCategory.getSpecies()) {
@@ -31,19 +32,22 @@ public class ViewCreateScrapieTest extends JPanel {
             }
         }
 
+        // Store the array of species into a comboBox
         comboBoxSpecieChoice = new JComboBox(species.toArray());
 
         // Definition of Fonts - Foreground and Background
         labelNewScrapieTest.setFont(new Font("Lucida Fax", Font.BOLD, 20));
         labelNewScrapieTest.setForeground(new Color(89, 148, 60));
 
-        fieldFirstValue = new JTextField(20);
-        fieldSecondValue = new JTextField(20);
-
         buttonSubmitTest.setFont(new Font("Lucida Fax", Font.BOLD, 18));
         buttonSubmitTest.setForeground(new Color(255, 255, 255));
         buttonSubmitTest.setBackground(new Color(89, 148, 60));
 
+        // JTextField long of 20
+        fieldFirstValue = new JTextField(20);
+        fieldSecondValue = new JTextField(20);
+
+        // Create tje JPanel and add each element into it
         scrapieTestPanel = new JPanel();
         scrapieTestPanel.add(labelNewScrapieTest);
         scrapieTestPanel.add(comboBoxSpecieChoice);
@@ -51,6 +55,7 @@ public class ViewCreateScrapieTest extends JPanel {
         scrapieTestPanel.add(fieldSecondValue);
         scrapieTestPanel.add(buttonSubmitTest);
 
+        // Set the layout of the JPanel
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         // Provide a space between each of 10
