@@ -34,6 +34,7 @@ public class Order {
 	this.customer = customer;
 	this.samples = s;
 	status = OrderStatus.inProgress;
+	setTimestamp();
   }
 
   /**
@@ -71,6 +72,7 @@ public class Order {
     }
 
     public void setTimestamp() {
+      if(null == timestamp)
         timestamp = new Timestamp(System.currentTimeMillis());
     }
 }

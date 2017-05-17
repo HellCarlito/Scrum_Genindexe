@@ -71,6 +71,7 @@ public class ControllerConsultCustomer {
         IntegrationTest i = new IntegrationTest();
         ControllerConsultCustomer c = new ControllerConsultCustomer(i);
         w.setContent(c.getViewConsultCustomer());
+        w.setSize(500,570);
     }
 
 }

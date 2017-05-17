@@ -13,7 +13,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeCellRenderer;
 import java.awt.*;
 import java.net.URL;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ViewConsultCustomer extends JPanel{
 
@@ -44,8 +46,8 @@ public class ViewConsultCustomer extends JPanel{
 
         left.setLayout(new BorderLayout());
         right.setLayout(new BorderLayout());
-        left.setMinimumSize(new Dimension(150,300));
-        right.setMinimumSize(new Dimension(100,300));
+        left.setMinimumSize(new Dimension(150,0));
+        right.setMinimumSize(new Dimension(300,0));
 
         initTreeContent();
     }
@@ -288,7 +290,6 @@ public class ViewConsultCustomer extends JPanel{
     }
 
     private class PersonalizedCellRenderer implements TreeCellRenderer{
-
         ImageIcon user;
         ImageIcon sample0;
         ImageIcon sample1;
@@ -348,7 +349,8 @@ public class ViewConsultCustomer extends JPanel{
                 if (icon)label.setIcon(user);
                 component.add(new JLabel(" "+((Customer) val).getOrders().size()){{setFont(font1);setForeground(Color.LIGHT_GRAY);}});
             }else if(val instanceof Order){
-                label.setText(String.valueOf(((Order) val).getTimestamp()));
+                Date d=new Date(((Order) val).getTimestamp().getTime());
+                label.setText(DateFormat.getDateInstance().format(d));
                 if (icon)switch (((Order) val).getStatus()){
                     case inProgress:label.setIcon(order1);break;
                     case toAnalyze:label.setIcon(order2);break;
