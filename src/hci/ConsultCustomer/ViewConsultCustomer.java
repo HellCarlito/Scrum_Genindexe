@@ -269,6 +269,18 @@ public class ViewConsultCustomer extends JPanel{
 
 
     public void focus(Order o){
+        right.removeAll();
+
+        URL pathSample0 = getClass().getResource("/chem0.png");
+        URL pathSample1 = getClass().getResource("/chem1.png");
+        URL pathSample2 = getClass().getResource("/chem2.png");
+        URL pathSample3 = getClass().getResource("/chem3.png");
+        ImageIcon sample0 = new ImageIcon(pathSample0);
+        ImageIcon sample1 = new ImageIcon(pathSample1);
+        ImageIcon sample2 = new ImageIcon(pathSample2);
+        ImageIcon sample3 = new ImageIcon(pathSample3);
+
+
         JPanel content = new JPanel();
         content.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -276,15 +288,23 @@ public class ViewConsultCustomer extends JPanel{
         JLabel information_customer = new JLabel("Customer");
         information_customer.setFont(title);
 
-        JLabel info = new JLabel(o.getCustomer().getName()+", "+o.getCustomer().getTown());
+        JLabel infoCusto = new JLabel(o.getCustomer().getName()+", "+o.getCustomer().getTown());
 
-        JLabel date = new JLabel("Created the "+DateFormat.getDateInstance().format(o.getTimestamp().getTime())+".");
+        JLabel date = new JLabel("Batch of "+o.getSamples().size()+" samples created the "+DateFormat.getDateInstance().format(o.getTimestamp().getTime())+".");
+
+        JLabel info;
+        if(null != o.getSamples()){
+            if(o.getSamples().isEmpty()){
+                info = new JLabel("No analysis linked.");
+            }else{
+                info = new JLabel(o.getSamples().get(1).getAnalysis().getName()+" on samples from "+o.getSamples().get(1).getSpecie().getName()+".");
+            }
+        }else {
+            info = new JLabel("No analysis linked.");
+        }
 
         JLabel stats_section = new JLabel("Statistics");
         stats_section.setFont(title);
-
-        JLabel nb_sample = new JLabel(""+o.getSamples().size());
-
 
         int noResult = 0;
         int unreadable = 0;
@@ -293,9 +313,11 @@ public class ViewConsultCustomer extends JPanel{
         if(o.getSamples().size() > 0)for (Sample s:o.getSamples()) {
             if (null == s.getResults()){
                 noResult++;
+            }else if (s.getResults().isEmpty()) {
+                noResult++;
             }else{
                 Result r = s.getResults().get(s.getResults().size()-1);
-                switch (r.getStatus()){
+                if(r.getStatus() != null)switch (r.getStatus()){
                     case UNREADABLE:unreadable++;break;
                     case READABLE:readable++;break;
                     case VALIDATED:validated++;break;
@@ -303,6 +325,18 @@ public class ViewConsultCustomer extends JPanel{
             }
         }
 
+        JLabel noRes = new JLabel(sample0);
+        noRes.setText(" no result yet: "+noResult);
+        noRes.setHorizontalTextPosition(SwingConstants.RIGHT);
+        JLabel reada = new JLabel(sample2);
+        reada.setText(" waiting for validation: "+readable);
+        reada.setHorizontalTextPosition(SwingConstants.RIGHT);
+        JLabel unrea= new JLabel(sample3);
+        unrea.setText(" results unreadable: "+unreadable);
+        unrea.setHorizontalTextPosition(SwingConstants.RIGHT);
+        JLabel valid = new JLabel(sample1);
+        valid.setText(" results validated: "+validated);
+        valid.setHorizontalTextPosition(SwingConstants.RIGHT);
 
         c.gridx = 0;
         c.gridy = 0;
@@ -312,6 +346,46 @@ public class ViewConsultCustomer extends JPanel{
         c.gridwidth = 2;
         c.anchor = GridBagConstraints.WEST;
 
+        content.add(information_customer,c);
+
+        c.gridwidth = 2;
+        c.gridy++;
+        c.anchor = GridBagConstraints.CENTER;
+        content.add(infoCusto, c);
+
+        c.gridy++;
+        content.add(date, c);
+
+        c.gridy++;
+        content.add(info, c);
+
+        c.gridy++;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        content.add(new JSeparator(), c);
+        c.fill = 0;
+
+        c.anchor = GridBagConstraints.WEST;
+        c.gridy++;
+        content.add(stats_section, c);
+
+        c.gridy++;
+        c.anchor = GridBagConstraints.CENTER;
+
+        c.gridy++;
+        content.add(noRes, c);
+
+        c.gridy++;
+        content.add(reada, c);
+
+        c.gridy++;
+        content.add(valid, c);
+
+        c.gridy++;
+        content.add(unrea, c);
+
+
+        right.add(content, BorderLayout.NORTH);
+        right.updateUI();
     }
 
     public void focus(Sample s){
