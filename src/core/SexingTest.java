@@ -47,4 +47,10 @@ public class SexingTest extends Analysis {
     return femaleValue;
   }
 
+  public String toString(){
+      return getName()+" M"
+              +maleValue.getPosition()+"x"+maleValue.getValue()+"  F"
+              +femaleValue.getPosition()+"x"+femaleValue.getValue();
+  }
+
 }
