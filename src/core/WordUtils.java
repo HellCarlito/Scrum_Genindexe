@@ -30,7 +30,7 @@ public class WordUtils
 	 
 	 /**
 	  * Method which verify is a string is empty (true) or not (false).
-	  * 
+	  *
 	  */
 	 public static boolean empty(String word)
 	 {

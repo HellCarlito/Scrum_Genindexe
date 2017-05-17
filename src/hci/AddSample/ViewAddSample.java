@@ -1,6 +1,7 @@
-package hci;
+package hci.AddSample;
 
 import core.Customer;
+import hci.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
