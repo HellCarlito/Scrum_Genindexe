@@ -1,23 +1,19 @@
 package core;
+import core.WordUtils;
 
 import java.util.*;
 
-class SpecieCategory {
-  /**
-   * Set of species that belong to this category
-   */
-  private Set<Specie> species;
+public class SpecieCategory {
 
-  /**
-   * Description of a group for the species. For example, "birds"
-   */
-  private String name;
+  private Set<Specie> species; //Set of species that belong to this category
+  private String name; //Description of a group for the species. For example, "birds"
+  private WordUtils word;
 
   /**
    * Creates a new core.SpecieCategory
    */
   public SpecieCategory(String theName) {
-	name = theName;
+	name = word.capitalize(theName);
 	species = new HashSet<Specie>();
   }
 
@@ -28,12 +24,26 @@ class SpecieCategory {
   public final Set<Specie> getSpecies() {
     return species;
   }
+  
+  public boolean alreadyCategory(Specie specie) 
+  {
+	  boolean trouve = false;
+	  for (Specie aSpecie : getSpecies())
+	  {
+			if (specie.getName().equals(aSpecie.getName()))
+			{
+				trouve=true;
+			}
+	  }
+	  return trouve;
+  }
 
   /**
    * Add a specie in the category
    */
   public void addSpecie(Specie specie) {
-	species.add(specie);
+	if (!alreadyCategory(specie))
+		species.add(specie);
   }
 
 }
