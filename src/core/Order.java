@@ -69,4 +69,8 @@ public class Order {
     public Timestamp getTimestamp() {
         return timestamp;
     }
+
+    public void setTimestamp() {
+        timestamp = new Timestamp(System.currentTimeMillis());
+    }
 }
