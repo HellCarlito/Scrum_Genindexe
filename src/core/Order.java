@@ -1,11 +1,18 @@
 package core;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
  * Describes the orders for the customers
  */
 public class Order {
+
+    /**
+     * Save the time when the order is created
+     */
+    private Timestamp timestamp;
+
   /**
    * link to the customer
    */
@@ -59,4 +66,7 @@ public class Order {
 	status = OrderStatus.toAnalyze;
   }
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
 }
