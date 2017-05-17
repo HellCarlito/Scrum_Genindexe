@@ -33,7 +33,8 @@ public class ViewCreateOrder extends JPanel{
 
     public ViewCreateOrder(ArrayList<Customer> customers) {
         pathToCross = getClass().getResource("/cross.png");
-        icon = new ImageIcon(pathToCross);
+        if(null != pathToCross)
+            icon = new ImageIcon(pathToCross);
 
         buttonsSample = new LinkedHashMap<>();
 
@@ -129,11 +130,17 @@ public class ViewCreateOrder extends JPanel{
     }
 
     public void addSampleToList(Sample s) {
-        buttonsSample.put(s, new JButton(icon){{
-            setBorderPainted(false);
-            setBorder(null);
-            setMargin(new Insets(0, 0, 0, 0));
-            setContentAreaFilled(false);}});
+
+        if(null != pathToCross){
+            buttonsSample.put(s,new JButton(icon){{
+                setBorderPainted(false);
+                setBorder(null);
+                setMargin(new Insets(0, 0, 0, 0));
+                setContentAreaFilled(false);}});
+        }else {
+            buttonsSample.put(s,new JButton("Remove"));
+        }
+
         updateSampleList();
     }
 
