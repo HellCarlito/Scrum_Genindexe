@@ -56,7 +56,7 @@ public class ControlerCreateCustomer extends MouseAdapter
         					 vue.getTextPassword().getText(), vue.getTextEmail().getText());    				 
     				 if (aBase.addCustomer(newCustomer))
     				 {
-    					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Warning",JOptionPane.INFORMATION_MESSAGE);
+    					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Information",JOptionPane.INFORMATION_MESSAGE);
     				 }
     				 else
     				 {
@@ -70,7 +70,7 @@ public class ControlerCreateCustomer extends MouseAdapter
     		 }
     		 if (erreur==true)
     		 {
-    			 JOptionPane.showMessageDialog(null, "A mandatory field is missing.","Warning",JOptionPane.ERROR_MESSAGE);
+    			 JOptionPane.showMessageDialog(null, "A mandatory field is missing.","Error",JOptionPane.ERROR_MESSAGE);
     		 }
 		 }
      }
