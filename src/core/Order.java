@@ -1,11 +1,17 @@
 package core;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
  * Describes the orders for the customers
  */
 public class Order {
+    /**
+     * remember exactly when the order has been created
+     */
+    private Timestamp timestamp;
+
     /**
      * link to the customer
      */
@@ -56,6 +62,14 @@ public class Order {
     public void setSamples(List<Sample> s) {
         samples = s;
         status = OrderStatus.toAnalyze;
+    }
+
+    /**
+     * initiate the timeStamp of the sample
+     */
+    public void setTimestamp(){
+        if(null != timestamp)
+            timestamp = new Timestamp(System.currentTimeMillis());
     }
 
 }
