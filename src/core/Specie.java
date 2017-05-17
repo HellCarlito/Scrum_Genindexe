@@ -1,22 +1,22 @@
 package core;
 
 public class Specie {
-  /**
-   * Name of the specie
-   */
-  private String name;
+    /**
+     * Name of the specie
+     */
+    private String name;
 
-  public Specie(String n) {
-	name = n;
-  }
+    public Specie(String n) {
+        name = n;
+    }
 
-  public final String getName() {
-    return name;
-  }
+    public final String getName() {
+        return name;
+    }
 
-  @Override
-  public String toString(){
-      return name;
-  }
+    @Override
+    public String toString() {
+        return name;
+    }
 
 }

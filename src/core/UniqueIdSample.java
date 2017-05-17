@@ -4,10 +4,10 @@ package core;
  * Delivers a unique ID number for the samples.
  */
 class UniqueIdSample {
-  private int number = 0;
+    private int number = 0;
 
-  public int newNumber() {
-	return ++number;
-  }
+    public int newNumber() {
+        return ++number;
+    }
 
 }
