@@ -35,7 +35,7 @@ public class ControllerCreateSpecie implements ActionListener{
 		 {
     		 Specie newSpecies = new Specie (vue.getTextNameSpecie().getText());    				 
     		 aBase.theSpecies.add(newSpecies);
-    	     System.out.println("Specie : "+ newSpecies + ", "+ vue.getBoxCategory());
+    	     System.out.println("Specie : "+ newSpecies + ", "+ vue.getBoxCategory().getName());
     	 }
 		
 	}
