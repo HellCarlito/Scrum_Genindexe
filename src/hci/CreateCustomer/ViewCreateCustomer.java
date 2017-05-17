@@ -38,9 +38,9 @@ public class ViewCreateCustomer extends JPanel
 		
 		//Internet services form (for professional only)
 		private JLabel labelInternetServices = new JLabel ("Internet services : ");
-		private JLabel labelLogin = new JLabel ("Login : ");
+		private JLabel labelLogin = new JLabel ("Login * : ");
 		private JTextField textLogin = new JTextField ();
-		private JLabel labelPassword = new JLabel ("Password : ");
+		private JLabel labelPassword = new JLabel ("Password * : ");
 		private JTextField textPassword = new JTextField();
 		private JLabel labelEmail = new JLabel ("Mail : ");
 		private JTextField textEmail = new JTextField();
