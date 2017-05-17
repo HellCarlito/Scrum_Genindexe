@@ -22,7 +22,8 @@ public class SpecieCategoryTest {
 	@Before
 	public void setUp() throws Exception 
 	{
-		specie= new Specie ("Bird");
+		specie= new Specie ("Parrot");
+		category = new SpecieCategory("Bird");
 		category.addSpecie(specie);
 	}
 	
