@@ -1,10 +1,11 @@
 package hci.AddSample;
 
-import core.Customer;
+import core.*;
 import hci.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ViewAddSample extends JPanel {
 
@@ -14,21 +15,27 @@ public class ViewAddSample extends JPanel {
     private JButton validateAddSample;
 
     private Customer customer;
-    // TODO remplacer les espèces et analyses rentrées en dur ici !
-    private String[] specie = {"Radis", "Pti Wrap", "Kebab", "Entrecôte", "Saucisse", "Mojito"};
-    private String[] analysis = {"ScrapieTest", "SexingTest"};
+    private ArrayList<Specie> species;
+    private ArrayList<Analysis> analysis;
 
+    public ViewAddSample(IntegrationTest integrationTest) {
+        species = new ArrayList<>();
+        for (SpecieCategory specieCategory: integrationTest.theCategories) {
+            for (Specie s:specieCategory.getSpecies()) {
+                species.add(s);
+            }
+        }
 
-    public ViewAddSample() {
+        analysis = new ArrayList<>();
+        for (Analysis a:integrationTest.theAnalyses) {
+            analysis.add(a);
+        }
+
         title = new JLabel("Add a sample");
         title.setFont(new Font("sans serif", Font.PLAIN, 24));
 
-        // TODO remplacer ici aussi le nom du customer ?
-        customer = new Customer("John", "Poitiers");
-        customerReminder = new JLabel("Name of customer : " + customer.getName());
-
-        analysisComboBox = new JComboBox(analysis);
-        speciesComboBox = new JComboBox(specie);
+        analysisComboBox = new JComboBox(analysis.toArray());
+        speciesComboBox = new JComboBox(species.toArray());
 
         validateAddSample = new JButton("Validate");
 
@@ -53,22 +60,26 @@ public class ViewAddSample extends JPanel {
         this.add(title, c);
 
         c.gridy = 1;
-        this.add(customerReminder, c);
-
-        c.gridy = 2;
         this.add(analysisComboBox, c);
 
-        c.gridy = 3;
+        c.gridy = 2;
         this.add(speciesComboBox, c);
 
-        c.gridy = 4;
-        this.add(validateAddSample, c);
+    }
+
+    public JComboBox getAnalysisComboBox() {
+        return analysisComboBox;
+    }
+
+    public JComboBox getSpeciesComboBox() {
+        return speciesComboBox;
     }
 
     public static void main(String[] args) {
         new MainWindow() {{
-            setContent(new ViewAddSample(
-            ));
+            IntegrationTest i = new IntegrationTest();
+
+            setContent(new ViewAddSample(i));
         }};
     }
 
