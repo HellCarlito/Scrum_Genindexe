@@ -23,8 +23,11 @@ public class ControllerCreateOrder {
     }
 
     private void addSample() {
+
         //TODO: link to addSample to get the results
         view.addSampleToList(new Sample(null, new Specie("Chat"), model.getOrder()));
+
+
         this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
     }
 
