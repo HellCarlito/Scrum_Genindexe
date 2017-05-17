@@ -11,11 +11,11 @@ import java.util.*;
 public class IntegrationTest
 {
 	
-	
-	private ArrayList<SpecieCategory> base;
-	
     // With theCategories, all species are available
     public ArrayList<SpecieCategory> theCategories;
+    
+    //theSpecies stores the available species
+    public ArrayList<Specie> theSpecies;
     
     // theAnalyses stores the available analyses
     public ArrayList<Analysis> theAnalyses;
@@ -42,6 +42,7 @@ public class IntegrationTest
         theCategories = new ArrayList<SpecieCategory>();
         theAnalyses = new ArrayList<Analysis>();
         theCustomers = new ArrayList<Customer>();
+        theSpecies = new ArrayList<Specie>();
         
         // core.Customer "Mrs Rosemary Plumket", in Poitiers
         Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");
@@ -157,16 +158,6 @@ public class IntegrationTest
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
     }
-
-    
-	/**
-	 * Method to return the customers
-	 * @return customers
-	 */
-	public ArrayList<SpecieCategory> getCategory()
-	{
-		return base;
-	}
 	
 	
     //Add a new category

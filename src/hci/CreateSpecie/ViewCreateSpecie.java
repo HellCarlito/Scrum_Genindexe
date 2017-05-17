@@ -2,10 +2,15 @@ package hci.CreateSpecie;
 
 import javax.swing.*;
 import hci.MainWindow;
+import hci.CreateCategory.ControlerCreateCategory;
 import hci.CreateSpecie.ControllerCreateSpecie;
 import hci.CreateSpecie.ViewCreateSpecie;
 import core.SpecieCategory;
+import core.IntegrationTest;
+import core.Specie;
+
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ViewCreateSpecie extends JPanel {
 
@@ -16,13 +21,15 @@ public class ViewCreateSpecie extends JPanel {
 		private JLabel labelNameSpecie = new JLabel("Name of the specie : ");
 		private JTextField textNameSpecie = new JTextField();
 		private JLabel labelCategory = new JLabel("Category");
-		private JComboBox textCat = new JComboBox();
+		private JComboBox<IntegrationTest> textCat;
 		private JButton buttonSubmit = new JButton("Submit");
+		private ControllerCreateSpecie evt;
+		private ArrayList<SpecieCategory> categories;
 		
 		/**
 		 * Constructor
 		 */
-		public ViewCreateSpecie(SpecieCategory base){
+		public ViewCreateSpecie(IntegrationTest base){
 			
 			//Definition of fonts and colors 
 	        labelNewSpecie.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -39,10 +46,16 @@ public class ViewCreateSpecie extends JPanel {
 	        buttonSubmit.setBackground(new Color(89,148,60));
 	        
 	        //Listeners for buttons action
-	     //   evt = new ControlerCreateCategory(this,base);
-	     //  buttonSubmit.addMouseListener(evt);
+	        evt = new ControllerCreateSpecie(this,base);
+	        buttonSubmit.addActionListener(evt);
 	        
-	        
+	        //Initialisation of the combobox
+	        categories = new ArrayList<>();
+	        for (SpecieCategory specieCategory: base.theCategories)
+	        {
+	        	categories.add(specieCategory);
+	        }
+	        textCat = new JComboBox(categories.toArray());
 	        
 	        //Creation of a gridbaglayout
 	        this.setLayout(new GridBagLayout());
@@ -89,11 +102,12 @@ public class ViewCreateSpecie extends JPanel {
 		}
 		
 		//Getters
-		public JTextField getTextNameCatSpecie(){		
+		public JTextField getTextNameSpecie(){		
 			return textNameSpecie;
 		}
 		
-		public JComboBox getBoxCategory(){
+		
+		public JComboBox<IntegrationTest> getBoxCategory(){
 			return textCat;
 		}
 		
@@ -103,8 +117,9 @@ public class ViewCreateSpecie extends JPanel {
 		}
 		
 		public static void main(String[] args){
+			IntegrationTest aBase = new IntegrationTest();
 			MainWindow w = new MainWindow();
-			//w.setContent(new ViewCreateCategory(aBase));
+			w.setContent(new ViewCreateSpecie(aBase));
 		}
 
 }
