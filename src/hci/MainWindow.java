@@ -8,13 +8,10 @@ import java.awt.*;
  */
 public class MainWindow extends JFrame {
 
-    private JScrollPane jScrollPane;
-    JScrollPane scrollpane;
+    private JScrollPane scrollpane;
 
     public MainWindow(){
         super("Genindexe");
-        jScrollPane = new JScrollPane();
-        getContentPane().add(jScrollPane);
         getContentPane().setLayout(new BorderLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -22,11 +19,9 @@ public class MainWindow extends JFrame {
 
     public void setContent(JPanel jp){
         getContentPane().removeAll();
-        jScrollPane.removeAll();
         scrollpane = new JScrollPane(jp);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
-        jScrollPane.updateUI();
-
+        pack();
     }
 
 }
