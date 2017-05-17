@@ -5,6 +5,7 @@ import core.Sample;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -12,6 +13,9 @@ import java.util.LinkedHashMap;
 /**
  */
 public class ViewCreateOrder extends JPanel{
+
+    private URL pathToCross;
+    private ImageIcon icon;
 
     private JLabel title;
     private JLabel selectedCustomer;
@@ -28,6 +32,9 @@ public class ViewCreateOrder extends JPanel{
     private LinkedHashMap<Sample,JButton> buttonsSample;
 
     public ViewCreateOrder(ArrayList<Customer> customers) {
+        pathToCross = getClass().getResource("/cross.png");
+        icon = new ImageIcon(pathToCross);
+
         buttonsSample = new LinkedHashMap<>();
 
         buttonsCustomer = new LinkedHashMap<>();
@@ -108,7 +115,7 @@ public class ViewCreateOrder extends JPanel{
         c.gridy = 0;
         buttonsSample.forEach((s,b) -> {
             c.gridx = 0;
-            areaSample.add(new JLabel(s.getSpecie().getName()+", "+s.getAnalysis().getName()+" - "+s.getIdSample()), c);
+            areaSample.add(new JLabel(s.getSpecie().getName()+", "+s.getAnalysis().getName()+" - "+s.getIdSample()+"  "), c);
             c.gridx = 1;
             areaSample.add(b, c);
             c.gridy++;
@@ -122,7 +129,11 @@ public class ViewCreateOrder extends JPanel{
     }
 
     public void addSampleToList(Sample s) {
-        buttonsSample.put(s, new JButton("remove"));
+        buttonsSample.put(s, new JButton(icon){{
+            setBorderPainted(false);
+            setBorder(null);
+            setMargin(new Insets(0, 0, 0, 0));
+            setContentAreaFilled(false);}});
         updateSampleList();
     }
 
