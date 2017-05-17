@@ -3,21 +3,21 @@ package hci.CreateCategory;
 import javax.swing.*;
 import hci.MainWindow;
 import hci.CreateCategory.ControlerCreateCategory;
-import hci.CreateCategory.ViewCreateCategory;
-import core.CustomerBase;
 import core.IntegrationTest;
 import java.awt.*;
+
 
 public class ViewCreateCategory extends JPanel{
 
 	
 	//Definition of attributes for form
 	
-	//Form for customer information
+	//Form for category information
 	private JLabel labelNewCategory = new JLabel("Create a new category of specie : ");
 	private JLabel labelNameCategory = new JLabel("Name of the category : ");
 	private JTextField textNameCategory = new JTextField();
 	private JButton buttonSubmit = new JButton("Submit");
+	private ControlerCreateCategory evt;
 	
 	/**
 	 * Constructor

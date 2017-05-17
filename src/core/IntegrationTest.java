@@ -10,6 +10,10 @@ import java.util.*;
  */
 public class IntegrationTest
 {
+	
+	
+	private ArrayList<SpecieCategory> base;
+	
     // With theCategories, all species are available
     public ArrayList<SpecieCategory> theCategories;
     
@@ -154,4 +158,45 @@ public class IntegrationTest
         theAnalyses.add(sxt);
     }
 
+    
+	/**
+	 * Method to return the customers
+	 * @return customers
+	 */
+	public ArrayList<SpecieCategory> getCategory()
+	{
+		return base;
+	}
+	
+	
+    //Add a new category
+    public boolean addCategory(SpecieCategory aCategory)
+	{
+		boolean ajout = false;
+		if (!alreadyCategory(aCategory))
+		{
+			this.base.add(aCategory);
+			ajout=true;
+		}
+		else
+		{
+			ajout=false;
+		}
+		return ajout;
+	}
+
+
+    public boolean alreadyCategory(SpecieCategory aCategory)
+	{
+		boolean trouve = false;
+		for (SpecieCategory category : getCategory())
+    	{
+			if (aCategory.getNameCategory().equals(category.getNameCategory()))
+			{
+				trouve=true;
+			}
+    	}
+		return trouve;
+	}   
+    
 }

@@ -8,6 +8,7 @@ public class SpecieCategory {
   private Set<Specie> species; //Set of species that belong to this category
   private String name; //Description of a group for the species. For example, "birds"
   private WordUtils word;
+  private String nameCat; //Name of the category
 
   /**
    * Creates a new core.SpecieCategory
@@ -50,5 +51,10 @@ public class SpecieCategory {
 	}
 	return done;
   }
+  
+  //Return the name of the category
+  public final String getNameCategory() {
+	    return nameCat;
+	  }
 
 }
