@@ -1,11 +1,6 @@
 package hci.ConsultCustomer;
 
-
-import com.sun.org.apache.xpath.internal.operations.Or;
 import core.*;
-import hci.AddSample.ViewAddSample;
-import hci.MainWindow;
-import sun.awt.image.GifImageDecoder;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -274,6 +269,48 @@ public class ViewConsultCustomer extends JPanel{
 
 
     public void focus(Order o){
+        JPanel content = new JPanel();
+        content.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        JLabel information_customer = new JLabel("Customer");
+        information_customer.setFont(title);
+
+        JLabel info = new JLabel(o.getCustomer().getName()+", "+o.getCustomer().getTown());
+
+        JLabel date = new JLabel("Created the "+DateFormat.getDateInstance().format(o.getTimestamp().getTime())+".");
+
+        JLabel stats_section = new JLabel("Statistics");
+        stats_section.setFont(title);
+
+        JLabel nb_sample = new JLabel(""+o.getSamples().size());
+
+
+        int noResult = 0;
+        int unreadable = 0;
+        int readable = 0;
+        int validated = 0;
+        if(o.getSamples().size() > 0)for (Sample s:o.getSamples()) {
+            if (null == s.getResults()){
+                noResult++;
+            }else{
+                Result r = s.getResults().get(s.getResults().size()-1);
+                switch (r.getStatus()){
+                    case UNREADABLE:unreadable++;break;
+                    case READABLE:readable++;break;
+                    case VALIDATED:validated++;break;
+                }
+            }
+        }
+
+
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.insets = new Insets(5,10,0,5);
+        c.gridwidth = 2;
+        c.anchor = GridBagConstraints.WEST;
 
     }
 
