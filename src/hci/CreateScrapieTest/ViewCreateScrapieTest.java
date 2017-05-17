@@ -44,8 +44,8 @@ public class ViewCreateScrapieTest extends JPanel {
         buttonSubmitTest.setBackground(new Color(89, 148, 60));
 
         // JTextField long of 20
-        fieldFirstValue = new JTextField(20);
-        fieldSecondValue = new JTextField(20);
+        fieldFirstValue = new JTextField("Enter an integer value", 17);
+        fieldSecondValue = new JTextField("Enter an integer value", 17);
 
         // Create tje JPanel and add each element into it
         scrapieTestPanel = new JPanel();
