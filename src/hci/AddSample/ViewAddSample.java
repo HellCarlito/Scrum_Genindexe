@@ -98,6 +98,9 @@ public class ViewAddSample extends JPanel {
         c.gridy = 0;
         c.gridwidth = 2;
 
+        analysisComboBox.setEnabled(false);
+        speciesComboBox.setEnabled(false);
+
         c.anchor = GridBagConstraints.CENTER;
         this.add(title, c);
 

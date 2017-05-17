@@ -85,8 +85,7 @@ public class ViewCreateScrapieTest extends JPanel {
     public static void main(String[] args) {
         IntegrationTest intest = new IntegrationTest();
         new MainWindow() {{
-            setContent(new ViewCreateScrapieTest(intest
-            ));
+            setContent(new ViewCreateScrapieTest(intest));
         }};
     }
 }

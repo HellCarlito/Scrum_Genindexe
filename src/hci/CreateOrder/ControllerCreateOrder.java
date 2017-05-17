@@ -7,6 +7,7 @@ import hci.MainWindow;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class ControllerCreateOrder {
 
@@ -49,6 +50,10 @@ public class ControllerCreateOrder {
         }
 
         if(isGood){
+            view.getCustomer().addOrder(model.getOrder());
+            model.getOrder().setCustomer(view.getCustomer());
+            model.getOrder().setSamples((List<Sample>) view.getButtonsSample().keySet());
+            model.getOrder().setTimestamp();
             //Link to another panel
         }
     }
