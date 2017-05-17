@@ -37,9 +37,5 @@ public class ScrapieTest extends Analysis {
     return scrapieSensibility;
   }
 
-  @Override
-  public String toString(){
-      return getName()+" "+scrapieSensibility.getPosition()+" "+scrapieSensibility.getValue();
-  }
 
 }

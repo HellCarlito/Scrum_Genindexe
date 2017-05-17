@@ -2,28 +2,32 @@ package hci.CreateOrder;
 
 import core.Customer;
 import core.CustomerBase;
+import core.IntegrationTest;
 import core.Order;
 
 import java.util.ArrayList;
 
 public class ModelCreateOrder {
 
-    private CustomerBase customerBase;
+    private ArrayList<Customer> customers;
     private Order order;
+    private IntegrationTest integrationTest;
 
-    public ModelCreateOrder(CustomerBase customerBase) {
+    public ModelCreateOrder(IntegrationTest integrationT) {
         order = new Order();
-        customerBase = customerBase;
+        integrationTest = integrationT;
+        customers = integrationT.theCustomers;
     }
 
-    public ArrayList<Customer> getArrayListCustomer(){
-        if(null != customerBase)
-            return customerBase.getCustomers();
-        else
-            return new ArrayList<Customer>(){{add(new Customer("Pat","Poitiers"));}};
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
 
     public Order getOrder() {
         return order;
+    }
+
+    public IntegrationTest getIntegrationTest() {
+        return integrationTest;
     }
 }

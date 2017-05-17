@@ -25,7 +25,7 @@ public abstract class Analysis {
 
   @Override
   public String toString(){
-      return getName();
+      return getName()+" for "+specie.getName();
   }
 
 }

@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  */
@@ -23,13 +24,13 @@ public class ViewCreateOrder extends JPanel{
 
     private Customer selectedC;
 
-    private HashMap<Customer, JButton> buttonsCustomer;
-    private HashMap<Sample,JButton> buttonsSample;
+    private LinkedHashMap<Customer, JButton> buttonsCustomer;
+    private LinkedHashMap<Sample,JButton> buttonsSample;
 
     public ViewCreateOrder(ArrayList<Customer> customers) {
-        buttonsSample = new HashMap<>();
+        buttonsSample = new LinkedHashMap<>();
 
-        buttonsCustomer = new HashMap<>();
+        buttonsCustomer = new LinkedHashMap<>();
         for (Customer c:customers) {
             buttonsCustomer.put(c, new JButton(c.getName()+", "+c.getTown()){{
                 setBackground(Color.WHITE);
@@ -90,7 +91,9 @@ public class ViewCreateOrder extends JPanel{
         c.gridx = 0;
         c.gridwidth = 2;
         c.gridy = 2;
+        c.insets = new Insets(10,0,10,0);
         this.add(areaSample, c);
+        c.insets = new Insets(0,0,10,0);
 
         c.gridy = 3;
         this.add(addSample, c);
@@ -105,7 +108,7 @@ public class ViewCreateOrder extends JPanel{
         c.gridy = 0;
         buttonsSample.forEach((s,b) -> {
             c.gridx = 0;
-            areaSample.add(new JLabel(s.getIdSample()+", "+s.getSpecie().getName()+"  "), c);
+            areaSample.add(new JLabel(s.getSpecie().getName()+", "+s.getAnalysis().getName()+" - "+s.getIdSample()), c);
             c.gridx = 1;
             areaSample.add(b, c);
             c.gridy++;
@@ -131,11 +134,11 @@ public class ViewCreateOrder extends JPanel{
         return areaSample;
     }
 
-    public HashMap<Customer, JButton> getButtonsCustomer() {
+    public LinkedHashMap<Customer, JButton> getButtonsCustomer() {
         return buttonsCustomer;
     }
 
-    public HashMap<Sample, JButton> getButtonsSample() {
+    public LinkedHashMap<Sample, JButton> getButtonsSample() {
         return buttonsSample;
     }
 

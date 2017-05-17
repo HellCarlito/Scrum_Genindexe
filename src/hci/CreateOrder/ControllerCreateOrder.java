@@ -13,9 +13,9 @@ public class ControllerCreateOrder {
     private ViewCreateOrder view;
     private ModelCreateOrder model;
 
-    public ControllerCreateOrder() {
-        this.model = new ModelCreateOrder(new CustomerBase(){{addCustomer(new Customer("Paul", "poitiers"));}});
-        this.view = new ViewCreateOrder(model.getArrayListCustomer());
+    public ControllerCreateOrder(IntegrationTest integrationTest) {
+        this.model = new ModelCreateOrder(integrationTest);
+        this.view = new ViewCreateOrder(model.getCustomers());
 
         this.view.getButtonsCustomer().forEach((c,b) -> {b.addActionListener(new HandlerSelectionCustomer());});
         this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
@@ -24,8 +24,17 @@ public class ControllerCreateOrder {
     }
 
     private void addSample() {
-        ControllerAddSample controllerAddSample = new ControllerAddSample();
-        Sample samp = controllerAddSample.creationSamplePopUp(model.getOrder());
+        ControllerAddSample controllerAddSample = new ControllerAddSample(model.getIntegrationTest());
+
+        Sample samp;
+        if (view.getButtonsSample().size() < 1)
+            samp = controllerAddSample.creationSamplePopUp(model.getOrder());
+        else{
+            Specie s = view.getButtonsSample().entrySet().iterator().next().getKey().getSpecie();
+            Analysis a = view.getButtonsSample().entrySet().iterator().next().getKey().getAnalysis();
+            samp = controllerAddSample.creationSamplePopUp(model.getOrder(), a, s);
+        }
+
         if(null != samp){
             view.addSampleToList(samp);
             this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
@@ -35,12 +44,12 @@ public class ControllerCreateOrder {
     private void sendForm() {
         Boolean isGood = true;
         if(view.getButtonsSample().size() < 1 || null == view.getCustomer()){
-            JOptionPane.showMessageDialog(null, "Il faut ajouter au moins un échantillon");
+            JOptionPane.showMessageDialog(null, "At least one sample is required");
             isGood = false;
         }
 
         if(isGood){
-
+            //Link to another panel
         }
     }
 
@@ -81,7 +90,7 @@ public class ControllerCreateOrder {
 
     public static void main(String[] args){
         MainWindow w = new MainWindow();
-        ControllerCreateOrder controller = new ControllerCreateOrder();
+        ControllerCreateOrder controller = new ControllerCreateOrder(new IntegrationTest());
         w.setContent(controller.getView());
     }
 
