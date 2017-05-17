@@ -389,11 +389,60 @@ public class ViewConsultCustomer extends JPanel{
     }
 
     public void focus(Sample s){
+        right.removeAll();
+        JPanel content = new JPanel();
+        content.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
 
+        JLabel description_section = new JLabel("Sample description");
+        description_section.setFont(title);
+
+        JLabel completed = new JLabel(s.isCompleted()?"Completed":"Not completed");
+
+        JLabel result = new JLabel("Result :"+s.getResult());
+
+        JLabel info = new JLabel("Sample "+s.getIdSample()+" from "+s.getSpecie());
+
+        JLabel analys = new JLabel();
+        if(null != s.getResults()){
+            if(!s.getResults().isEmpty()){
+                analys = new JLabel(s.getAnalysis().getName()+" performed "+s.getResults().size()+" times.");
+            }else{
+                analys = new JLabel(s.getAnalysis().getName()+" not yet started.");
+            }
+        }
+
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.anchor = GridBagConstraints.WEST;
+        c.insets = new Insets(5,10,5,0);
+        c.weightx = 1;
+        c.weighty = 1;
+
+        content.add(description_section, c);
+
+        c.gridwidth = 1;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridy++;
+        content.add(info, c);
+
+        c.gridy++;
+        content.add(analys, c);
+
+        c.gridy++;
+        if(s.isCompleted())
+            completed.setForeground(Color.GREEN);
+        else
+            completed.setForeground(Color.RED);
+        content.add(completed, c);
+
+        c.gridy++;
+        content.add(result, c);
+
+        right.add(content, BorderLayout.NORTH);
+        right.updateUI();
     }
-
-
-
 
 
     public JTree getTreeView() {

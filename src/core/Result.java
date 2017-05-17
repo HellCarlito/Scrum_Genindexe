@@ -70,4 +70,9 @@ public abstract class Result {
         }
     }
 
+    @Override
+    public String toString(){
+        return getInterpretation();
+    }
+
 }
