@@ -5,6 +5,7 @@ import javax.swing.*;
 import core.CustomerBase;
 import core.SpecieCategory;
 import hci.MainWindow;
+import hci.CreateCustomer.ControlerCreateCustomer;
 import hci.CreateCustomer.ViewCreateCustomer;
 
 import java.awt.*;
@@ -19,7 +20,10 @@ public class ViewConnectCustomer extends JPanel{
 	private JLabel labelPassword = new JLabel("Password : ");
 	private JTextField textLogin = new JTextField();
 	private JTextField textPassword = new JTextField();
+	
+	//Button to submit the information
 	private JButton buttonSubmit = new JButton("Submit");
+	private ControlerConnectCustomer evt;
 	
 	/**
 	 * Constructor
@@ -38,6 +42,10 @@ public class ViewConnectCustomer extends JPanel{
         buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 20));
         buttonSubmit.setForeground(new Color(255,255,255));
         buttonSubmit.setBackground(new Color(89,148,60));
+        
+      //Listeners for buttons action
+        evt = new ControlerConnectCustomer(this,base);
+        buttonSubmit.addMouseListener(evt);
         
       //Creation of a gridbaglayout
         this.setLayout(new GridBagLayout());
