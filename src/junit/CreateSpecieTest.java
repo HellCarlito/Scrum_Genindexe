@@ -2,6 +2,7 @@ package junit;
 
 import core.Specie;
 import core.SpecieCategory;
+import core.WordUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,9 +40,9 @@ public class CreateSpecieTest {
     public void testAddSpecie() {
         newSpecie = new Specie("Parrot");
         anotherSpecie = new Specie("parrot");
+        String stringMod = WordUtils.capitalize(anotherSpecie.getName());
         assertEquals(specieCat.addSpecie(newSpecie), false);
-        // Doit retourner faux mais retourne vrai car pas de différence entre Parrot et parrot
-        assertEquals(specieCat.addSpecie(anotherSpecie), false);
+        assertEquals(specieCat.addSpecie(new Specie(stringMod)), false);
     }
 
     /**
@@ -51,10 +52,10 @@ public class CreateSpecieTest {
     public void testAlreadyCategory() {
         newSpecie = new Specie("Parrot");
         anotherSpecie = new Specie("parrot");
+        String stringMod = WordUtils.capitalize(anotherSpecie.getName());
         assertEquals(true, specieCat.alreadyCategory(specie));
         assertEquals(true, specieCat.alreadyCategory(newSpecie));
-        // Doit retourner vrai mais false car pas de différence entre Parrot et parrot
-        assertEquals(true, specieCat.alreadyCategory(anotherSpecie));
+        assertEquals(true, specieCat.alreadyCategory(new Specie(stringMod)));
     }
 
 
