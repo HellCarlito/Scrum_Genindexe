@@ -37,7 +37,7 @@ public class ViewCreateCategory extends JPanel{
         
         //Listeners for buttons action
        evt = new ControlerCreateCategory(this,base);
-       buttonSubmit.addMouseListener(evt);
+       buttonSubmit.addActionListener(evt);
         
         //Creation of a gridbaglayout
         this.setLayout(new GridBagLayout());

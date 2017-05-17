@@ -173,9 +173,10 @@ public class IntegrationTest
     public boolean addCategory(SpecieCategory aCategory)
 	{
 		boolean ajout = false;
+		aCategory.getName();
 		if (!alreadyCategory(aCategory))
 		{
-			this.base.add(aCategory);
+			this.theCategories.add(aCategory);
 			ajout=true;
 		}
 		else
@@ -188,15 +189,16 @@ public class IntegrationTest
 
     public boolean alreadyCategory(SpecieCategory aCategory)
 	{
-		boolean trouve = false;
-		for (SpecieCategory category : getCategory())
+    	String name1, name2;
+		for (SpecieCategory category : theCategories)
     	{
-			if (aCategory.getNameCategory().equals(category.getNameCategory()))
+			if (aCategory.getName().equals(category.getName()
+					))
 			{
-				trouve=true;
+				return true;
 			}
     	}
-		return trouve;
+		return false;
 	}   
     
 }
