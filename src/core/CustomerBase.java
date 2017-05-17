@@ -61,4 +61,27 @@ public class CustomerBase
 		}
 		return ajout;
 	}
+	
+	/**
+	 * Check if the 
+	 */
+	public Customer signIn(String log, String pass)
+	{
+		Customer logCustomer = new Customer ("kjklj", "jlkjlk");
+		boolean trouve = false;
+		for (Customer aCustomer :getCustomers())
+		{
+			if (aCustomer.getLogin().equals(log) && (aCustomer.getPassword().equals(pass)))
+			{
+				logCustomer = aCustomer;
+				trouve = true;
+			}
+		}
+		if (trouve = true)
+		{
+			return logCustomer;
+		} else {
+			return null;
+		}
+	}
 }

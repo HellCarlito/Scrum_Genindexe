@@ -26,7 +26,7 @@ public class CustomerBaseTest
 	
 	/**
 	 * Method testAlreadyCustomer
-	 * <p>test the constructor with the setUp value</p>
+	 * <p>test the method with the setUp value</p>
 	 */
 	@Test
 	public void testAlreadyCustomer()
@@ -49,5 +49,20 @@ public class CustomerBaseTest
 		anotherCustomer = new Customer ("Parrots Academy", "Newcastle");
 		assertEquals(aBase.addCustomer(aNewCustomer),false);
 		assertEquals(aBase.addCustomer(anotherCustomer),true);
+	}
+	
+	
+	/**
+	 * Method testSignIn
+	 * <p>test the method with the setUp value</p>
+	 */
+	@Test
+	public void testSignIn()
+	{
+		aNewCustomer = new Customer (true, "Parrots Academy", "London", "yo",
+				"1", "2", "3", "na", "ka", "toto", "titi", "hko");
+		aBase.addCustomer(aNewCustomer);
+		assertEquals(aBase.signIn("toto", "titi"), aNewCustomer);
+		assertEquals(aBase.signIn("kjlk",  "kjhklj"), null);
 	}
 }
