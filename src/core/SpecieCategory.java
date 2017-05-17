@@ -47,5 +47,9 @@ public class SpecieCategory {
         return done;
     }
 
+    @Override
+    public String toString(){
+    	return getName();
+    }
 
 }

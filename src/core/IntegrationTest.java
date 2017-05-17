@@ -10,13 +10,16 @@ import java.util.ArrayList;
  */
 public class IntegrationTest {
 
-
-    // With theCategories, all species are available
     public ArrayList<SpecieCategory> theCategories;
-    // theAnalyses stores the available analyses
+    
+    //theSpecies stores the available species
+    public ArrayList<Specie> theSpecies;
+    
     public ArrayList<Analysis> theAnalyses;
+    
     // theCustomers gives access to all samples and results
     public ArrayList<Customer> theCustomers;
+    
     private ArrayList<SpecieCategory> base;
 
     /**
@@ -37,8 +40,8 @@ public class IntegrationTest {
         theCategories = new ArrayList<SpecieCategory>();
         theAnalyses = new ArrayList<Analysis>();
         theCustomers = new ArrayList<Customer>();
+        theSpecies = new ArrayList<Specie>();
 
-        // core.Customer "Mrs Rosemary Plumket", in Poitiers
         Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");
         theCustomers.add(rose);
         // core.Customer "La Palmyre Zoo" in Royan
@@ -153,7 +156,6 @@ public class IntegrationTest {
         theAnalyses.add(sxt);
     }
 
-
     /**
      * Method to return the customers
      *
@@ -163,8 +165,6 @@ public class IntegrationTest {
         return base;
     }
 
-
-    //Add a new category
     public boolean addCategory(SpecieCategory aCategory) {
         boolean ajout = false;
         aCategory.getName();

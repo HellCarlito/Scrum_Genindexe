@@ -4,20 +4,20 @@ package core;
  * List of correct values for order status
  */
 public enum OrderStatus {
-    inProgress, /**
-     * First status for the Order
-     */
+  inProgress,/**
+   * First status for the Order
+   */
 
-    toAnalyze, /**
-     * Order ready for analysis
-     */
+  toAnalyze,/**
+   * Order ready for analysis
+   */
 
-    inAnalysis, /**
-     * Analysis in progress
-     */
+  inAnalysis,/**
+   * Analysis in progress
+   */
 
-    completed,/**
-     * Analysis completed
-     */
-    ;
+  completed,/**
+   * Analysis completed
+   */
+;
 }
