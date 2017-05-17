@@ -62,6 +62,9 @@ public class ViewConsultCustomer extends JPanel{
                 }
             }
         }
+
+        root.add(new DefaultMutableTreeNode("Exit"));
+
         treeView = new JTree(root);
         treeView.setRootVisible(false);
         treeView.setCellRenderer(new PersonalizedCellRenderer());
@@ -399,7 +402,7 @@ public class ViewConsultCustomer extends JPanel{
 
         JLabel completed = new JLabel(s.isCompleted()?"Completed":"Not completed");
 
-        JLabel result = new JLabel("Result :"+s.getResult());
+        JLabel result = new JLabel("Result: "+s.getResult());
 
         JLabel info = new JLabel("Sample "+s.getIdSample()+" from "+s.getSpecie());
 
@@ -536,6 +539,10 @@ public class ViewConsultCustomer extends JPanel{
                 }else {
                     label.setIcon(sample0);
                 }
+            }else if(val.equals("Exit")){
+                label.setText("Exit");
+                label.setFont(new Font("sans serif", Font.BOLD, 16));
+                label.setForeground(Color.RED);
             }
             if (selected){
                 component.setBorder(new EtchedBorder());

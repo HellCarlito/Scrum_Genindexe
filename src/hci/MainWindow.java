@@ -24,4 +24,11 @@ public class MainWindow extends JFrame {
         pack();
     }
 
+    public static void main(String[] args){
+        //"The real main" that will launch the app
+        //TODO: All the MVC modules should be able to run them self using a this way as FOLLOWING
+        //TODO: new ControllerMonModule(MainWindow app, IntegrationTest integrationTest)
+        //TODO:         create its view on the app.setContent and getting data from integrationTest
+    }
+
 }
