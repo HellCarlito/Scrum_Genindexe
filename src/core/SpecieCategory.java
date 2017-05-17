@@ -41,9 +41,14 @@ public class SpecieCategory {
   /**
    * Add a specie in the category
    */
-  public void addSpecie(Specie specie) {
+  public boolean addSpecie(Specie specie) {
+	boolean done = false;
 	if (!alreadyCategory(specie))
+	{
 		species.add(specie);
+		done = true;
+	}
+	return done;
   }
 
 }
