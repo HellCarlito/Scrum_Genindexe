@@ -5,8 +5,8 @@ import hci.MainWindow;
 import core.CustomerBase;
 import java.awt.*;
 
-public class ViewCreateCustomer extends JPanel{
-
+public class ViewCreateCustomer extends JPanel
+{
 		//Definition of attributes for form
 		
 		//Form for customer information
@@ -55,8 +55,8 @@ public class ViewCreateCustomer extends JPanel{
 		/**
 		 * Constructor
 		 */
-		public ViewCreateCustomer(CustomerBase base) {
-			
+		public ViewCreateCustomer(CustomerBase base)
+		{	
 				//Definition of fonts and colors 
 		        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
 		        labelNewCustomer.setForeground(new Color(89,148,60));

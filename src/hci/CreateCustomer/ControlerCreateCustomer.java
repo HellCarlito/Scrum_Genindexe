@@ -50,26 +50,17 @@ public class ControlerCreateCustomer extends MouseAdapter
     			 }
     			 if (erreur==false)
     			 {
-    				 Customer newCustomer = new Customer (professional,vue.getTextName().getText(), vue.getTextCorporateName().getText(),
-        					 vue.getTextTown().getText(), vue.getTextPhoneNumber().getText(),vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(),
+    				 Customer newCustomer = new Customer (professional,vue.getTextName().getText(), vue.getTextTown().getText(),
+        					 vue.getTextCorporateName().getText(), vue.getTextPhoneNumber().getText(),vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(),
         					 vue.getTextInvoicingAddress().getText(),vue.getTextInvoicingContact().getText(),vue.getTextLogin().getText(),
         					 vue.getTextPassword().getText(), vue.getTextEmail().getText());    				 
-    				 aBase.addCustomer(newCustomer);
-    				 for (Customer c : aBase.getCustomers())
+    				 if (aBase.addCustomer(newCustomer))
     				 {
-    					 System.out.println("professional"+c.getProfessional());
-    					 System.out.println("name"+c.getName());
-    					 System.out.println("town"+c.getTown());
-    					 System.out.println("cn"+c.getCorporateName());
-    					 System.out.println("pn"+c.getPhoneNumber());
-    					 System.out.println("fax"+c.getFax());
-    					 System.out.println("cell"+c.getCellNumber());
-    					 System.out.println("adres"+c.getAddress());
-    					 System.out.println("in"+c.getInvoicingName());
-    					 System.out.println("login"+c.getLogin());
-    					 System.out.println("mdp"+c.getPassword());
-    					 System.out.println("email"+c.getEmail());
-    					 
+    					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Warning",JOptionPane.INFORMATION_MESSAGE);
+    				 }
+    				 else
+    				 {
+    					 JOptionPane.showMessageDialog(null, "The customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is already in the database.","Warning",JOptionPane.WARNING_MESSAGE);
     				 }
     			 } 
     		 }
@@ -79,7 +70,7 @@ public class ControlerCreateCustomer extends MouseAdapter
     		 }
     		 if (erreur==true)
     		 {
-    			 JOptionPane.showMessageDialog(null, "A mandatory field is missing.","Warning",JOptionPane.WARNING_MESSAGE);
+    			 JOptionPane.showMessageDialog(null, "A mandatory field is missing.","Warning",JOptionPane.ERROR_MESSAGE);
     		 }
 		 }
      }
