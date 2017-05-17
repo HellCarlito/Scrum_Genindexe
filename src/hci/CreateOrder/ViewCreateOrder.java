@@ -2,7 +2,6 @@ package hci.CreateOrder;
 
 import core.Customer;
 import core.Sample;
-import hci.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,9 +60,9 @@ public class ViewCreateOrder extends JPanel{
         areaSample = new JPanel();
         areaSample.setLayout(new GridBagLayout());
 
-        addSample = new JButton("Ajout échantillon");
+        addSample = new JButton("Add sample");
 
-        validate = new JButton("Valider");
+        validate = new JButton("Validate");
         validate.setEnabled(false);
 
         this.setLayout(new GridBagLayout());
