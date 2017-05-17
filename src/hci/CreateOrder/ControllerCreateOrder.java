@@ -1,6 +1,7 @@
 package hci.CreateOrder;
 
 import core.*;
+import hci.AddSample.ControllerAddSample;
 import hci.MainWindow;
 
 import javax.swing.*;
@@ -23,12 +24,12 @@ public class ControllerCreateOrder {
     }
 
     private void addSample() {
-
-        //TODO: link to addSample to get the results
-        view.addSampleToList(new Sample(null, new Specie("Chat"), model.getOrder()));
-
-
-        this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
+        ControllerAddSample controllerAddSample = new ControllerAddSample();
+        Sample samp = controllerAddSample.creationSamplePopUp(model.getOrder());
+        if(null != samp){
+            view.addSampleToList(samp);
+            this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
+        }
     }
 
     private void sendForm() {
