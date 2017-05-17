@@ -23,4 +23,9 @@ public abstract class Analysis {
 	specie = s;
   }
 
+  @Override
+  public String toString(){
+      return getName();
+  }
+
 }

@@ -60,7 +60,7 @@ public class IntegrationTest
         ScrapieTest sct = new ScrapieTest(s,354,224);
         theAnalyses.add(sct);
         // core.Order for Tom Brown - 24 sheeps, status toAnalyse
-        Order o = new Order(tom, null);
+        Order o = new Order(tom, new ArrayList<>());
         tom.addOrder(o);
         ArrayList<Sample> ls = new ArrayList<Sample>();
         Sample sam;
@@ -89,7 +89,7 @@ public class IntegrationTest
             scrValidatedNotSensible.validate(true);      
         
         // core.Order for Tom Brown - 36 sheeps, all firstRead, not sensible - order status = completed
-        o = new Order(tom, null);
+        o = new Order(tom, new ArrayList<>());
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
         for (int i=0;i<36;i++) {
@@ -100,7 +100,7 @@ public class IntegrationTest
         o.setSamples(ls);
         
         // core.Order for Tom Brown - 12 sheeps, ready to analyse - order status = toAnalyse
-        o = new Order(tom,null);
+        o = new Order(tom,new ArrayList<>());
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
         for (int i=0;i<12;i++) {
@@ -111,7 +111,7 @@ public class IntegrationTest
         o.setSamples(ls);
         
         // core.Order for Tom Brown - 8 sheeps, different status - order status = inAnalysis
-        o = new Order(tom, null);
+        o = new Order(tom, new ArrayList<>());
         tom.addOrder(o);
         ls = new ArrayList<Sample>();
         for (int i=0;i<4;i++) {
@@ -134,7 +134,7 @@ public class IntegrationTest
         o.setSamples(ls);
         
         // core.Order for Paul Cameron, status in progress (samples are not created yet)
-        o = new Order(paul, null);
+        o = new Order(paul, new ArrayList<>());
         paul.addOrder(o);
             
         // Sexing tests management - no order created yet
@@ -152,7 +152,6 @@ public class IntegrationTest
         sc.addSpecie(s);
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
-       
     }
 
 }
