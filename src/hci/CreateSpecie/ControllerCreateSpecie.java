@@ -33,9 +33,19 @@ public class ControllerCreateSpecie implements ActionListener{
 		
 		 if (evt.getSource() == vue.getButtonSubmit())
 		 {
-    		 Specie newSpecies = new Specie (vue.getTextNameSpecie().getText());    				 
-    		 aBase.theSpecies.add(newSpecies);
-    	     System.out.println("Specie : "+ newSpecies + ", "+ vue.getBoxCategory().getName());
+    		 Specie newSpecies = new Specie (vue.getTextNameSpecie().getText().toLowerCase());
+    		//aBase.theSpecies.add(newSpecies);
+    		 for (Specie s : aBase.theSpecies){
+    			 System.out.println(s.getName());
+	    		 if (newSpecies.getName() == s.getName()){
+	    			 System.out.println("Error !! This name already exist !!"); 
+	    		 }
+	    		 else {
+	    			 aBase.theSpecies.add(newSpecies);
+	    			 System.out.println("Specie : "+ newSpecies + ", "+ vue.getBoxCategory().getName()); 
+	    		 }
+    		 }
+    	     
     	 }
 		
 	}
