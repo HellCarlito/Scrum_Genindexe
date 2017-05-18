@@ -55,7 +55,7 @@ public class ControlerCreateCustomer extends MouseAdapter
     				 Customer newCustomer = new Customer (professional,vue.getTextName().getText(), vue.getTextTown().getText(),
         					 vue.getTextCorporateName().getText(), vue.getTextPhoneNumber().getText(),vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(),
         					 vue.getTextInvoicingAddress().getText(),vue.getTextInvoicingContact().getText(),vue.getTextLogin().getText(),
-        					 vue.getTextPassword().getText(), vue.getTextEmail().getText());    				 
+        					 vue.getTextPassword().getText(), vue.getTextEmail().getText());
     				 if (aBase.addCustomer(newCustomer))
     				 {
     					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Information",JOptionPane.INFORMATION_MESSAGE);
