@@ -43,7 +43,7 @@ public class ViewCreateCustomer extends JPanel
 		private JLabel labelLogin = new JLabel ("Login * : ");
 		private JTextField textLogin = new JTextField ();
 		private JLabel labelPassword = new JLabel ("Password * : ");
-		private JTextField textPassword = new JTextField();
+		private JPasswordField textPassword = new JPasswordField();
 		private JLabel labelEmail = new JLabel ("Mail : ");
 		private JTextField textEmail = new JTextField();
 		

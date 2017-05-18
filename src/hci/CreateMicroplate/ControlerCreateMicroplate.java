@@ -27,11 +27,11 @@ public class ControlerCreateMicroplate implements ActionListener{
 	public void actionPerformed(ActionEvent evt) {
 	if (evt.getSource() == vue.getButtonSubmit())
 	 {
-		 Microplate newMircoplate = new Microplate(vue.getTextNameCatSpecie().getText());
-		 aBase.theCategories.add(newCategory);
+		 Microplate newMircoplate = new Microplate(vue.ViewCreateMicroplate().getText());
+		 aBase.theCategories.add(newMircoplate);
 		 for (SpecieCategory c : aBase.theCategories)
 		 {
-			 System.out.println("Category: "+c.getName());
+			 System.out.println("Microplate: "+c.getName());
 		 } 
 	 }
 	

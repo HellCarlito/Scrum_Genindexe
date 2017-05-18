@@ -20,7 +20,7 @@ public class ViewConnectCustomer extends JPanel
 	private JLabel labelLogin = new JLabel("Login : ");
 	private JLabel labelPassword = new JLabel("Password : ");
 	private JTextField textLogin = new JTextField();
-	private JTextField textPassword = new JTextField();
+	private JPasswordField textPassword = new JPasswordField();
 	
 	//Button to submit the information
 	private JButton buttonSubmit = new JButton("Submit");
