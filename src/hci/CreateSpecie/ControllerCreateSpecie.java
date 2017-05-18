@@ -43,6 +43,8 @@ public class ControllerCreateSpecie implements ActionListener{
     		 Specie newSpecies = new Specie (word.capitalize(vue.getTextNameSpecie().getText()));    		 
     		 SpecieCategory sc = null;
     		 boolean find=false;
+    		 boolean findEmpty=false;
+    		 
     		 for(SpecieCategory c:aBase.theCategories)
     		 {
     			for (Specie s : c.getSpecies())
@@ -51,6 +53,11 @@ public class ControllerCreateSpecie implements ActionListener{
 		    		 {
 		    			 find=true;
 		    			 break;
+		    		 }
+		    		 else if (newSpecies.getName().equals(""))
+		    		 {
+		    			findEmpty = true;
+		    			break;
 		    		 }
 		    		 else
 		    		 {
@@ -66,6 +73,10 @@ public class ControllerCreateSpecie implements ActionListener{
     		 if(find)
     		 {
     			 JOptionPane.showMessageDialog(null, "The specie "+newSpecies.getName()+" is already in the database.","Warning",JOptionPane.WARNING_MESSAGE);
+    		 }
+    		 else if (findEmpty)
+    		 {
+    			 JOptionPane.showMessageDialog(null, "Please fill the test field !!! ","Warning",JOptionPane.WARNING_MESSAGE); 
     		 }
     		 else
     		 {
