@@ -1,11 +1,15 @@
 package hci.MainTest;
 
 import core.IntegrationTest;
+import core.Specie;
+import core.SpecieCategory;
 import hci.CreateCategory.ControlerCreateCategory;
 import hci.CreateCategory.ViewCreateCategory;
 import hci.CreateSpecie.ViewCreateSpecie;
 import hci.MainWindow;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,7 +28,12 @@ public class ControllerMainTest {
         v = new ViewMainTest();
         w.setContent(v);
 
-
+        v.getBtConCul().addActionListener(new BtListener());
+        v.getBtAddOrd().addActionListener(new BtListener());
+        v.getBtAddCus().addActionListener(new BtListener());
+        v.getBtAddSpe().addActionListener(new BtListener());
+        v.getBtAddCat().addActionListener(new BtListener());
+        v.getBtVieSpe().addActionListener(new BtListener());
     }
 
     private class BtListener implements ActionListener{
@@ -46,4 +55,45 @@ public class ControllerMainTest {
             }
         }
     }
+
+    private class ViewSpecieData extends JPanel{
+
+        private IntegrationTest t;
+        private MainWindow w;
+
+        public ViewSpecieData(IntegrationTest tt, MainWindow ww) {
+            t=tt;
+            w=ww;
+            this.setLayout(new BorderLayout());
+            JTextArea t = new JTextArea();
+            this.add(t, BorderLayout.CENTER);
+
+            t.setText(textInit());
+
+            w.setContent(this);
+        }
+
+        private String textInit(){
+            String s = "";
+            for (SpecieCategory c :t.theCategories) {
+                s += c.getName()+"\n";
+                for (Specie p:c.getSpecies()) {
+                    s += "    "+p.getName()+"\n";
+                }
+            }
+            return s;
+        }
+
+    }
+
+
+
+    public static void main(String[] args){
+        MainWindow m = new MainWindow();
+        new ControllerMainTest(m, new IntegrationTest());
+    }
 }
+
+
+
+
