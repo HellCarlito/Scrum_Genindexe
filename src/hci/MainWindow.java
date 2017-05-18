@@ -14,8 +14,7 @@ public class MainWindow extends JFrame
     private JScrollPane scrollpane;
     private JPanel header;
     private JLabel title = new JLabel("Genindexe",JLabel.CENTER);
-    private JButton back;
-    private JButton signIn;
+    private JButton back,signIn,signOut;
     private Customer logCustomer;
     private ControlerMainWindow evt;
     private IntegrationTest integrationTest;
@@ -44,6 +43,7 @@ public class MainWindow extends JFrame
     	header = new JPanel(new BorderLayout());
         back = new JButton("Back");
         signIn = new JButton("Sign in");
+        signOut = new JButton("Sign out");
         
         //Definition of font, foreground and background 
         back.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -52,6 +52,9 @@ public class MainWindow extends JFrame
         signIn.setFont(new Font("Lucida Fax", Font.BOLD, 20));
         signIn.setForeground(new Color(255,255,255));
         signIn.setBackground(new Color(89,148,60));
+        signOut.setFont(new Font("Lucida Fax", Font.BOLD, 20));
+        signOut.setForeground(new Color(255,255,255));
+        signOut.setBackground(new Color(89,148,60));
         
         //Definition of fonts and colors
         title.setFont(new Font("Lucida Fax", Font.BOLD, 24));
@@ -61,10 +64,21 @@ public class MainWindow extends JFrame
         evt = new ControlerMainWindow(this, integrationTest);
         back.addMouseListener(evt);
         signIn.addMouseListener(evt);
+        signOut.addMouseListener(evt);
         
         header.add(back, BorderLayout.WEST);
         header.add(title, BorderLayout.CENTER);
-        header.add(signIn, BorderLayout.EAST);
+        if (getLogCustomer()!=null)
+        {
+        	title.setText("Genindexe   -   "+getLogCustomer().getName()+" ("+getLogCustomer().getTown()+")");
+        	header.add(signOut, BorderLayout.EAST);
+        }
+        else
+        {
+        	title.setText("Genindexe");
+        	header.add(signIn, BorderLayout.EAST);
+        }
+        
 
         return header;
     }
@@ -78,6 +92,11 @@ public class MainWindow extends JFrame
     {
     	return signIn;
     }
+    
+    public JButton getSignOut()
+    {
+    	return signOut;
+    }
 
     public Customer getLogCustomer()
     {
@@ -87,6 +106,11 @@ public class MainWindow extends JFrame
     public void setLogCustomer(Customer c)
     {
     	logCustomer=c;
+    }
+    
+    public void setLogOut()
+    {
+    	logCustomer=null;
     }
 
 

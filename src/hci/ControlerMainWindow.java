@@ -37,5 +37,10 @@ public class ControlerMainWindow extends MouseAdapter
 		 {
     		 new ViewConnectCustomer(integrationTest,main);
 		 }
+    	 else if (evt.getSource() == main.getSignOut())
+		 {
+    		 main.setLogOut();
+    		 new ViewConnectCustomer(integrationTest,main);
+		 }
      }
 }
