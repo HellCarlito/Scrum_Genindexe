@@ -12,8 +12,8 @@ import core.Specie;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class ViewCreateSpecie extends JPanel {
-
+public class ViewCreateSpecie extends JPanel
+{
 		//Definition of attributes for form
 		
 		//Form for customer information
@@ -29,7 +29,8 @@ public class ViewCreateSpecie extends JPanel {
 		/**
 		 * Constructor
 		 */
-		public ViewCreateSpecie(IntegrationTest base){
+		public ViewCreateSpecie(IntegrationTest base, MainWindow main)
+		{
 			
 			//Definition of fonts and colors 
 	        labelNewSpecie.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -40,13 +41,13 @@ public class ViewCreateSpecie extends JPanel {
 	        labelCategory.setForeground(new Color(89,148,60));
 	        
 	        
-	      //Definition of font, foreground and background 
+	        //Definition of font, foreground and background 
 	        buttonSubmit.setFont(new Font("Lucida Fax", Font.BOLD, 18));
 	        buttonSubmit.setForeground(new Color(255,255,255));
 	        buttonSubmit.setBackground(new Color(89,148,60));
 	        
 	        //Listeners for buttons action
-	        evt = new ControllerCreateSpecie(this,base);
+	        evt = new ControllerCreateSpecie(this,base,main);
 	        buttonSubmit.addActionListener(evt);
 	        
 	        //Initialisation of the combobox
@@ -119,7 +120,7 @@ public class ViewCreateSpecie extends JPanel {
 		public static void main(String[] args){
 			IntegrationTest aBase = new IntegrationTest();
 			MainWindow w = new MainWindow();
-			w.setContent(new ViewCreateSpecie(aBase));
+			w.setContent(new ViewCreateSpecie(aBase,w));
 		}
 
 }

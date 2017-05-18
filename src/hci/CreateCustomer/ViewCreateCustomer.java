@@ -55,7 +55,7 @@ public class ViewCreateCustomer extends JPanel
 		/**
 		 * Constructor
 		 */
-		public ViewCreateCustomer(CustomerBase base)
+		public ViewCreateCustomer(CustomerBase base, MainWindow main)
 		{	
 				//Definition of fonts and colors 
 		        labelNewCustomer.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -101,7 +101,7 @@ public class ViewCreateCustomer extends JPanel
 		        buttonSubmit.setBackground(new Color(89,148,60));
 		        
 		        //Listeners for buttons action
-		        evt = new ControlerCreateCustomer(this,base);
+		        evt = new ControlerCreateCustomer(this,base,main);
 		        buttonSubmit.addMouseListener(evt);
 		        
 		        //Add radiobutton to panel choixPro
@@ -269,6 +269,8 @@ public class ViewCreateCustomer extends JPanel
 		        c.gridy = 22;
 		        c.anchor = GridBagConstraints.SOUTHEAST;
 		        this.add(buttonSubmit, c);
+		        
+		        main.setContent(this);
 		}
 
 		//Getters
@@ -344,7 +346,7 @@ public class ViewCreateCustomer extends JPanel
 		public static void main(String[] args){
 			CustomerBase aBase = new CustomerBase();
 			MainWindow w = new MainWindow();
-			w.setContent(new ViewCreateCustomer(aBase));
+			w.setContent(new ViewCreateCustomer(aBase,w));
 		}
 	}
 

@@ -10,8 +10,8 @@ import hci.CreateCustomer.ViewCreateCustomer;
 
 import java.awt.*;
 
-public class ViewConnectCustomer extends JPanel{
-
+public class ViewConnectCustomer extends JPanel
+{
 	//Definition of attributes for form
 
 	//Form for customer information
@@ -28,7 +28,7 @@ public class ViewConnectCustomer extends JPanel{
 	/**
 	 * Constructor
 	 */
-	public ViewConnectCustomer(CustomerBase base)
+	public ViewConnectCustomer(CustomerBase base, MainWindow main)
 	{
 		//Definition of fonts and colors 
 		labelConnect.setFont(new Font("Lucida Fax", Font.BOLD, 24));
@@ -44,7 +44,7 @@ public class ViewConnectCustomer extends JPanel{
         buttonSubmit.setBackground(new Color(89,148,60));
         
       //Listeners for buttons action
-        evt = new ControlerConnectCustomer(this,base);
+        evt = new ControlerConnectCustomer(this,base,main);
         buttonSubmit.addMouseListener(evt);
         
       //Creation of a gridbaglayout
@@ -90,6 +90,8 @@ public class ViewConnectCustomer extends JPanel{
         c.gridy = 5;
         c.anchor = GridBagConstraints.SOUTHEAST;
         this.add(buttonSubmit, c);
+        
+        main.setContent(this);
 	}
 	
 	//Getters
@@ -109,7 +111,7 @@ public class ViewConnectCustomer extends JPanel{
 		public static void main(String[] args){
 			CustomerBase aBase = new CustomerBase();
 			MainWindow w = new MainWindow();
-			w.setContent(new ViewConnectCustomer(aBase));
+			w.setContent(new ViewConnectCustomer(aBase,w));
 
 		}
 }
