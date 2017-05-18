@@ -234,7 +234,6 @@ public class IntegrationTest {
         boolean trouve = false;
         for (Customer aCustomer : theCustomers)
         {
-            System.out.println(aCustomer.getLogin());
             if (aCustomer.getLogin() != null && aCustomer.getPassword() != null)
             {
                 if (aCustomer.getLogin().equals(log) && (aCustomer.getPassword().equals(pass)))
