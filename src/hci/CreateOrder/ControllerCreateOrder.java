@@ -2,6 +2,7 @@ package hci.CreateOrder;
 
 import core.*;
 import hci.AddSample.ControllerAddSample;
+import hci.MainTest.ControllerMainTest;
 import hci.MainWindow;
 
 import javax.swing.*;
@@ -14,6 +15,8 @@ public class ControllerCreateOrder {
 
     private ViewCreateOrder view;
     private ModelCreateOrder model;
+    private IntegrationTest integrationTest;
+    private MainWindow main;
 
     public ControllerCreateOrder(IntegrationTest integrationTest, MainWindow m) {
         this.model = new ModelCreateOrder(integrationTest);
@@ -60,6 +63,7 @@ public class ControllerCreateOrder {
             model.getOrder().setSamples(samples);
             model.getOrder().setTimestamp();
             //Link to another panel
+            JOptionPane.showMessageDialog(null, "Your order has been saved.", "Saved!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

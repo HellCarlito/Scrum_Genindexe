@@ -74,8 +74,7 @@ public class ViewMainTest extends JPanel{
         c.gridx++;
         c.gridx++;
         add(btConCul, c);
-
-
+        
         c.gridx = 0;
         c.gridy++;
         c.gridwidth = 9;
