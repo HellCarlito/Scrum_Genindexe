@@ -37,8 +37,8 @@ public class MainWindow extends JFrame
     	getContentPane().add(getHeader(), BorderLayout.NORTH);
         scrollpane = new JScrollPane(jp);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
-        setSize(900,500);
-
+        setSize(900,650);
+        getBack().updateUI();
     }
      
     public JPanel getHeader()
