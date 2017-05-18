@@ -39,7 +39,7 @@ public class ControlerCreateCategory implements ActionListener{
     		 
     		 for (SpecieCategory c : aBase.theCategories)
     		 {
-    			 if (newCategory.getName().equals(c.getName()))
+    			 if (newCategory.getName().toUpperCase().equals(c.getName().toUpperCase()))
     			 {
     				 find = true;
     				 break;
@@ -48,11 +48,6 @@ public class ControlerCreateCategory implements ActionListener{
     			 {
     				 sc=c;
     			 }
-    			 
-	    		if (find)
-	    		{
-	    			break;
-	    		}
     		 }
     		 
     		 if(find)
@@ -64,6 +59,13 @@ public class ControlerCreateCategory implements ActionListener{
     			 aBase.theCategories.add(newCategory);
     			 JOptionPane.showMessageDialog(null, "The category "+newCategory.getName()+" is created.","Information",JOptionPane.INFORMATION_MESSAGE);
     		 }
-		 }
+
+             for (SpecieCategory c :
+                     aBase.theCategories) {
+                 System.out.println(c.getName());
+             }
+
+
+         }
 	}
 }

@@ -25,10 +25,9 @@ public class ControllerMainTest {
     private IntegrationTest i;
 
     public ControllerMainTest(MainWindow win, IntegrationTest integrationTest) {
-        i = new IntegrationTest();
+        i = integrationTest;
         w = win;
         v = new ViewMainTest();
-        w.setContent(v);
 
         v.getBtConCul().addActionListener(new BtListener());
         v.getBtAddOrd().addActionListener(new BtListener());
@@ -36,6 +35,8 @@ public class ControllerMainTest {
         v.getBtAddSpe().addActionListener(new BtListener());
         v.getBtAddCat().addActionListener(new BtListener());
         v.getBtVieSpe().addActionListener(new BtListener());
+
+        w.setContent(v);
     }
 
     private class BtListener implements ActionListener{
