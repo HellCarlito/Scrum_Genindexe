@@ -90,6 +90,8 @@ public class ViewConnectCustomer extends JPanel
         c.gridy = 5;
         c.anchor = GridBagConstraints.SOUTHEAST;
         this.add(buttonSubmit, c);
+        
+        main.setContent(this);
 	}
 	
 	//Getters

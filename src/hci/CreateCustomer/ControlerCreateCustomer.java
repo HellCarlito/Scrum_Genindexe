@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import core.*;
+import hci.MainWindow;
 
 public class ControlerCreateCustomer extends MouseAdapter
 {
@@ -12,15 +13,16 @@ public class ControlerCreateCustomer extends MouseAdapter
     private ViewCreateCustomer vue;
     private Customer aCustomer;
     private CustomerBase aBase;
-    //private Main main;
+    private MainWindow main;
     
     /**
      * The Constructor for the listener
      */
-    public ControlerCreateCustomer(ViewCreateCustomer v,CustomerBase c)
+    public ControlerCreateCustomer(ViewCreateCustomer v,CustomerBase c, MainWindow m)
     {
     	vue=v;
     	aBase=c;
+    	main=m;
     }
     
     /**
