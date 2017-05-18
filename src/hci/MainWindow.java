@@ -40,7 +40,7 @@ public class MainWindow extends JFrame
         setSize(900,650);
         getBack().updateUI();
     }
-     
+
     public JPanel getHeader()
     {
     	header = new JPanel(new BorderLayout());

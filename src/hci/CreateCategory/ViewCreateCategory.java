@@ -22,7 +22,7 @@ public class ViewCreateCategory extends JPanel{
 	/**
 	 * Constructor
 	 */
-	public ViewCreateCategory(IntegrationTest base){
+	public ViewCreateCategory(IntegrationTest base, MainWindow w){
 		
 		//Definition of fonts and colors 
         labelNewCategory.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -71,6 +71,8 @@ public class ViewCreateCategory extends JPanel{
         c.gridy = 5;
         c.anchor = GridBagConstraints.SOUTHEAST;
         this.add(buttonSubmit, c);
+
+        w.setContent(this);
 	}
 	
 	//Getters
@@ -86,7 +88,7 @@ public class ViewCreateCategory extends JPanel{
 	public static void main(String[] args){
 		IntegrationTest aBase = new IntegrationTest();
 		MainWindow w = new MainWindow(aBase);
-		w.setContent(new ViewCreateCategory(aBase));
+		w.setContent(new ViewCreateCategory(aBase, w));
 	}
 
 }

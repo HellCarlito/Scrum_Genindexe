@@ -43,7 +43,7 @@ public class ControllerMainTest {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == v.getBtAddCat()){
-
+                new ViewCreateCategory(i, w);
             }else if(e.getSource() == v.getBtAddSpe()){
                 new ViewCreateSpecie(i, w);
             }else if(e.getSource() == v.getBtVieSpe()){
