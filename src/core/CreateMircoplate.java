@@ -4,45 +4,48 @@ import java.util.ArrayList;
 
 public class CreateMircoplate {
 	private ArrayList<Sample> microplate;
+	private Microplate plate;
 	private OrderStatus status;
 	private Integer i=0, j=0, cpt=0;
 	/**
-	 * This
+	 * This method creates a microplate and add the sample to it
 	 */
-	public CreateMircoplate(Sample sample){
+	public CreateMircoplate(Integer id, Sample sample){
 		
 		
 		
 		status = OrderStatus.toAnalyze;
-		microplate = new ArrayList<Sample>();
+		//microplate = new ArrayList<Sample>();
+		plate = new Microplate(id);
     	// Si la liste est vide
-    	if (microplate.isEmpty()){
+		if (plate.emptyPlate()) {
     		// tant que le taille est inf à 8
-    		while (this.microplate.size()<8){
+    		while (plate.getSize()<8){
     			// si le status est inProgress
     			if (sample.getOrder().getStatus().equals(status)){
     				//ajout en tete de liste
-		    		this.microplate.add(i,sample);
+		    		plate.addSample(i,sample);
 		    		i= i++;
 		    		}
 	    		else {
 	    			// si pas inProgress ajouter en fin de liste
-	    			j=microplate.size()+1; // la taille +1
-	    			this.microplate.add(j,sample);
+	    			j=plate.getSize()+1; // la taille +1
+	    			this.plate.addSample(j,sample);
 	    		}
     		}
     	}
     	else {
     	// Si liste non vide
-		while (microplate.isEmpty()!=false)
+		while (plate.emptyPlate()!=false)
 			// si le status inProgress
-			if (sample.getOrder().getStatus().equals(status))
-				for (Sample s: microplate)
-					while(s.getOrder().equals(status))
-						cpt=cpt++; // le nombre de samples qui sont en progress
-					this.microplate.add(cpt+1,sample);
-    	}
+			while (plate.getSize()<8){
+				if (sample.getOrder().getStatus().equals(status))
+					for (Sample s: microplate)
+						while(s.getOrder().equals(status))
+							cpt=cpt++; // le nombre de samples qui sont en progress
+						plate.addSample(cpt+1,sample);
+			}
 	
-		
+    	}
 	}
 }
