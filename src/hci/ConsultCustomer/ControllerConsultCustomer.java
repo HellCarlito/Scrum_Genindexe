@@ -19,11 +19,11 @@ public class ControllerConsultCustomer {
     private ModelConsultCustomer modelConsultCustomer;
     private ViewConsultCustomer viewConsultCustomer;
 
-    public ControllerConsultCustomer(IntegrationTest integrationT) {
+    public ControllerConsultCustomer(MainWindow w, IntegrationTest integrationT) {
         modelConsultCustomer = new ModelConsultCustomer(integrationT);
         viewConsultCustomer = new ViewConsultCustomer(integrationT.theCustomers);
-
         viewConsultCustomer.getTreeView().addTreeSelectionListener(new HandlerJTreeSelection());
+        w.setContent(viewConsultCustomer);
     }
 
 
@@ -75,8 +75,7 @@ public class ControllerConsultCustomer {
     public static void main(String[] args){
         MainWindow w = new MainWindow();
         IntegrationTest i = new IntegrationTest();
-        ControllerConsultCustomer c = new ControllerConsultCustomer(i);
-        w.setContent(c.getViewConsultCustomer());
+        ControllerConsultCustomer c = new ControllerConsultCustomer(w,i);
         w.setSize(500,570);
     }
 

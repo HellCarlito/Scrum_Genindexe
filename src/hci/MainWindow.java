@@ -23,7 +23,7 @@ public class MainWindow extends JFrame {
         getContentPane().add(scrollpane, BorderLayout.CENTER);
         pack();
     }
-
+    
     public static void main(String[] args){
         //"The real main" that will launch the app
         //TODO: All the MVC modules should be able to run them self using a this way as FOLLOWING
