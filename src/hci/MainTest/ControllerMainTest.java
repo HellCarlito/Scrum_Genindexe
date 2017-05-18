@@ -35,6 +35,7 @@ public class ControllerMainTest {
         v.getBtAddCus().addActionListener(new BtListener());
         v.getBtAddSpe().addActionListener(new BtListener());
         v.getBtAddCat().addActionListener(new BtListener());
+        v.getBtAddPla().addActionListener(new BtListener());
 
         w.setContent(v);
     }
@@ -53,6 +54,8 @@ public class ControllerMainTest {
                 new ControllerCreateOrder(i, w);
             }else if(e.getSource() == v.getBtConCul()){
                 new ControllerConsultCustomer(w, i);
+            }else if(e.getSource() == v.getBtAddPla()){
+                //TODO: replace with the micoplate
             }
         }
     }
