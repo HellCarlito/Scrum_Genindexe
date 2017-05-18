@@ -1,8 +1,9 @@
 package hci;
 
 import javax.swing.*;
-
+import core.Customer;
 import core.CustomerBase;
+import hci.ConnectCustomer.ControlerConnectCustomer;
 import hci.ConnectCustomer.ViewConnectCustomer;
 
 import java.awt.*;
@@ -13,14 +14,18 @@ import java.awt.*;
 public class MainWindow extends JFrame
 {
     private JScrollPane scrollpane;
-    private JPanel header,right;
+    private JPanel header;
     private JLabel title = new JLabel("Genindexe",JLabel.CENTER);
     private JButton back;
     private JButton signIn;
-    private JButton signUp;
+    private Customer logCustomer;
+    private CustomerBase base;
+    private ControlerMainWindow evt;
 
     public MainWindow(){
         super("Genindexe");
+        logCustomer=null;
+        base = new CustomerBase();
         getContentPane().setLayout(new BorderLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -39,7 +44,6 @@ public class MainWindow extends JFrame
     	header = new JPanel(new BorderLayout());
         back = new JButton("Back");
         signIn = new JButton("Sign in");
-        signUp = new JButton("Sign up");
         
         //Definition of font, foreground and background 
         back.setFont(new Font("Lucida Fax", Font.BOLD, 20));
@@ -48,24 +52,47 @@ public class MainWindow extends JFrame
         signIn.setFont(new Font("Lucida Fax", Font.BOLD, 20));
         signIn.setForeground(new Color(255,255,255));
         signIn.setBackground(new Color(89,148,60));
-        signUp.setFont(new Font("Lucida Fax", Font.BOLD, 20));
-        signUp.setForeground(new Color(255,255,255));
-        signUp.setBackground(new Color(89,148,60));
         
         //Definition of fonts and colors
         title.setFont(new Font("Lucida Fax", Font.BOLD, 24));
       	title.setForeground(new Color(89,148,60));
+      	
+      	//Listeners for buttons action
+        evt = new ControlerMainWindow(this);
+        back.addMouseListener(evt);
+        signIn.addMouseListener(evt);
         
-        right = new JPanel(new GridLayout());
-        right.add(signIn);
-        right.add(signUp);
         header.add(back, BorderLayout.WEST);
         header.add(title, BorderLayout.CENTER);
-        header.add(right, BorderLayout.EAST);
+        header.add(signIn, BorderLayout.EAST);
+        
         return header;
     }
     
+    public JButton getBack()
+    {
+    	return back;
+    }
     
+    public JButton getSignIn()
+    {
+    	return signIn;
+    }
+    
+    public CustomerBase getBase()
+    {
+    	return base;
+    }
+    
+    public Customer getLogCustomer()
+    {
+    	return logCustomer;
+    }
+    
+    public void setLogCustomer(Customer c)
+    {
+    	logCustomer=c;
+    }
     
     public static void main(String[] args){
         //"The real main" that will launch the app

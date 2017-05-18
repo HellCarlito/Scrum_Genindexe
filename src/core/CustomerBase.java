@@ -65,6 +65,7 @@ public class CustomerBase {
         boolean trouve = false;
         for (Customer aCustomer : getCustomers())
         {
+        	System.out.println(aCustomer.getLogin());
             if (aCustomer.getLogin() != null && aCustomer.getPassword() != null)
             {
                 if (aCustomer.getLogin().equals(log) && (aCustomer.getPassword().equals(pass)))
