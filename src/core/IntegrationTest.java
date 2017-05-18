@@ -205,7 +205,24 @@ public class IntegrationTest {
         }
         return trouve;
     }
-
+    
+    /**
+     * 
+     */
+    public boolean loginFree(Customer aCustomer)
+    {
+    	boolean free = true;
+    	for (Customer customer : theCustomers)
+    	{
+    		if(aCustomer.getLogin().equals(customer.getLogin()))
+    		{
+    			free=false;
+    			break;
+    		}
+    	}
+    	return free;
+    }
+    
     /**
      * Add a customer if he is not already a client.
      *
@@ -213,12 +230,17 @@ public class IntegrationTest {
      * @return True if the customer is added
      * False if the customer is not added (already in the database)
      */
-    public boolean addCustomer(Customer aCustomer) {
+    public boolean addCustomer(Customer aCustomer)
+    {
         boolean ajout = false;
-        if (!alreadyCustomer(aCustomer)) {
+        System.out.println("loginFree:"+loginFree(aCustomer));
+        if (!alreadyCustomer(aCustomer) && loginFree(aCustomer))
+        {
             theCustomers.add(aCustomer);
             ajout = true;
-        } else {
+        }
+        else
+        {
             ajout = false;
         }
         return ajout;

@@ -58,15 +58,22 @@ public class ControlerCreateCustomer extends MouseAdapter
         					 vue.getTextCorporateName().getText(), vue.getTextPhoneNumber().getText(),vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(),
         					 vue.getTextInvoicingAddress().getText(),vue.getTextInvoicingContact().getText(),vue.getTextLogin().getText(),
         					 vue.getTextPassword().getText(), vue.getTextEmail().getText());
-    				 if (aBase.theCustomers.add(newCustomer))
+    				 if (aBase.addCustomer(newCustomer))
     				 {
     					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Information",JOptionPane.INFORMATION_MESSAGE);
-    					 new ControllerMainTest(main, aBase);
+    					 new ControllerMainTest(main, aBase); 
     				 }
     				 else
     				 {
-    					 JOptionPane.showMessageDialog(null, "The customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is already in the database.","Warning",JOptionPane.WARNING_MESSAGE);
-    				 }
+    					 if (aBase.alreadyCustomer(newCustomer))
+    					 {
+    						 JOptionPane.showMessageDialog(null, "The customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is already in the database.","Warning",JOptionPane.WARNING_MESSAGE);
+    					 }
+    					 else if (!aBase.loginFree(newCustomer))
+    					 {
+    						 JOptionPane.showMessageDialog(null, "The login "+newCustomer.getLogin()+" is not available.","Warning",JOptionPane.WARNING_MESSAGE);
+    					 }
+    				}
     			 } 
     		 }
     		 else
