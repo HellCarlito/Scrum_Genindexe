@@ -7,6 +7,7 @@ import hci.MainWindow;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerCreateOrder {
@@ -14,7 +15,7 @@ public class ControllerCreateOrder {
     private ViewCreateOrder view;
     private ModelCreateOrder model;
 
-    public ControllerCreateOrder(IntegrationTest integrationTest) {
+    public ControllerCreateOrder(IntegrationTest integrationTest, MainWindow m) {
         this.model = new ModelCreateOrder(integrationTest);
         this.view = new ViewCreateOrder(model.getCustomers());
 
@@ -22,6 +23,8 @@ public class ControllerCreateOrder {
         this.view.getButtonsSample().forEach((s,b) -> {b.addActionListener(new HandlerRemoveSample());});
         this.view.getValidate().addActionListener((e -> {sendForm();}));
         this.view.getAddSample().addActionListener((e -> {addSample();}));
+
+        m.setContent(this.view);
     }
 
     private void addSample() {
@@ -52,7 +55,9 @@ public class ControllerCreateOrder {
         if(isGood){
             view.getCustomer().addOrder(model.getOrder());
             model.getOrder().setCustomer(view.getCustomer());
-            model.getOrder().setSamples((List<Sample>) view.getButtonsSample().keySet());
+            List<Sample> samples = new ArrayList<>();
+            view.getButtonsSample().forEach((s,b)->{samples.add(s);});
+            model.getOrder().setSamples(samples);
             model.getOrder().setTimestamp();
             //Link to another panel
         }
@@ -91,13 +96,6 @@ public class ControllerCreateOrder {
 
     public ViewCreateOrder getView() {
         return view;
-    }
-
-    public static void main(String[] args){
-        IntegrationTest i = new IntegrationTest();
-        MainWindow w = new MainWindow(i);
-        ControllerCreateOrder controller = new ControllerCreateOrder(i);
-        w.setContent(controller.getView());
     }
 
 }

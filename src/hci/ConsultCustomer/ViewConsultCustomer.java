@@ -185,6 +185,7 @@ public class ViewConsultCustomer extends JPanel{
 
         gb.gridwidth = 2;
         gb.gridy = 4;
+        gb.gridy = 0;
         gb.anchor = GridBagConstraints.WEST;
 
         gb.fill = GridBagConstraints.HORIZONTAL;
@@ -539,10 +540,6 @@ public class ViewConsultCustomer extends JPanel{
                 }else {
                     label.setIcon(sample0);
                 }
-            }else if(val.equals("Exit")){
-                label.setText("Exit");
-                label.setFont(new Font("sans serif", Font.BOLD, 16));
-                label.setForeground(Color.RED);
             }
             if (selected){
                 component.setBorder(new EtchedBorder());

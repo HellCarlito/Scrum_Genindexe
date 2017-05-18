@@ -8,8 +8,6 @@ import java.awt.*;
 
 
 public class ViewCreateCategory extends JPanel{
-
-	
 	//Definition of attributes for form
 	
 	//Form for category information

@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import core.Customer;
 import core.CustomerBase;
 import hci.CreateCustomer.ViewCreateCustomer;
+import hci.MainTest.ControllerMainTest;
 
 public class ControlerConnectCustomer extends MouseAdapter
 {
@@ -35,20 +36,13 @@ public class ControlerConnectCustomer extends MouseAdapter
      {
     	 if (evt.getSource() == vue.getButtonSubmit())
 		 {
-    		 System.out.println("bouton");
     		 if (null!=vue.getTextLogin().getText() && null!=vue.getTextPassword().getText())
     		 {
-    			 System.out.println("pas null");
     			 if (aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText())!=null)
     			 {
     				 main.setLogCustomer(aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText()));
-    				 JOptionPane.showMessageDialog(null, "Yeeeee you are online !", "Information", JOptionPane.INFORMATION_MESSAGE);
+    				 new ControllerMainTest(main, aBase);
     			 }
-    			 for (Customer c : aBase.theCustomers)
-    			 {
-    				 System.out.println(c.getName());
-    			 }
-    			 //System.out.println(aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText()));
     		 } 
     		 else
     		 {
