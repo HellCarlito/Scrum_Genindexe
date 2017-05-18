@@ -1,12 +1,9 @@
 package hci;
 
-import javax.swing.*;
 import core.Customer;
-import core.CustomerBase;
 import core.IntegrationTest;
-import hci.ConnectCustomer.ControlerConnectCustomer;
-import hci.ConnectCustomer.ViewConnectCustomer;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -36,6 +33,7 @@ public class MainWindow extends JFrame
     	getContentPane().removeAll();
     	getContentPane().add(getHeader(), BorderLayout.NORTH);
         scrollpane = new JScrollPane(jp);
+        scrollpane.getVerticalScrollBar().setUnitIncrement(16);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
         setSize(900,650);
         getBack().updateUI();
