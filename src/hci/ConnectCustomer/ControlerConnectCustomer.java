@@ -1,5 +1,5 @@
 package hci.ConnectCustomer;
-
+import hci.MainWindow;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -15,15 +15,16 @@ public class ControlerConnectCustomer extends MouseAdapter
     private ViewConnectCustomer vue;
     private Customer aCustomer;
     private CustomerBase aBase;
-    //private Main main;
+    private MainWindow main;
     
     /**
      * The Constructor for the listener
      */
-    public ControlerConnectCustomer(ViewConnectCustomer v,CustomerBase c)
+    public ControlerConnectCustomer(ViewConnectCustomer v,CustomerBase c, MainWindow m)
     {
     	vue=v;
     	aBase=c;
+    	main=m;
     }
     
     /**
