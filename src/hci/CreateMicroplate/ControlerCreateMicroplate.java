@@ -18,30 +18,12 @@ public class ControlerCreateMicroplate implements ActionListener{
 //    private SpecieCategory aCategory;
     private IntegrationTest aBase;
     
-    
-	private ArrayList<Sample> samples;
-	private Sample sample;
-	private OrderStatus status;
 	
 	public ControlerCreateMicroplate(ViewCreateMicroplate v,IntegrationTest c)
     {
     	vue=v;
     	aBase=c;
-    	
-    	
-		status = OrderStatus.inProgress;
-		samples = new ArrayList<Sample>();
-    	// Si la liste est vide
-    	if samples.isEmpty()
-		while (samples.isEmpty()!=false)
-			if samples.
-		if (sample.getOrder().getStatus().equals(status))
-			samples.add(sample);
-			samples.toArray(a)
-			
-		
-    	
-    	
+    
     	
     }
 
