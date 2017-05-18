@@ -3,6 +3,10 @@ package hci.CreateSpecie;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
+import hci.MainWindow;
+import core.WordUtils;
 import core.IntegrationTest;
 import core.Specie;
 import core.SpecieCategory;
@@ -13,15 +17,18 @@ public class ControllerCreateSpecie implements ActionListener{
 	// attributes
     private ViewCreateSpecie vue;
     private IntegrationTest aBase;
+    private MainWindow main;
+    private WordUtils word;
  
     
     /**
      * The Constructor for the listener
      */
-    public ControllerCreateSpecie(ViewCreateSpecie v,IntegrationTest c)
+    public ControllerCreateSpecie(ViewCreateSpecie v,IntegrationTest c, MainWindow m)
     {
     	vue=v;
     	aBase=c;
+    	main=m;
     }
     
     /**
@@ -29,24 +36,42 @@ public class ControllerCreateSpecie implements ActionListener{
      * This method displays the name of the item in the inventory
      */
 	@Override
-	public void actionPerformed(ActionEvent evt) { 
-		
+	public void actionPerformed(ActionEvent evt)
+	{ 	
 		 if (evt.getSource() == vue.getButtonSubmit())
 		 {
-    		 Specie newSpecies = new Specie (vue.getTextNameSpecie().getText().toLowerCase());
-    		//aBase.theSpecies.add(newSpecies);
-    		 for (Specie s : aBase.theSpecies){
-    			 System.out.println(s.getName());
-	    		 if (newSpecies.getName() == s.getName()){
-	    			 System.out.println("Error !! This name already exist !!"); 
+    		 Specie newSpecies = new Specie (word.capitalize(vue.getTextNameSpecie().getText()));    		 
+    		 SpecieCategory sc = null;
+    		 boolean find=false;
+    		 for(SpecieCategory c:aBase.theCategories)
+    		 {
+    			for (Specie s : c.getSpecies())
+    				{
+		    		 if (newSpecies.getName().equals(s.getName()))
+		    		 {
+		    			 find=true;
+		    			 break;
+		    		 }
+		    		 else
+		    		 {
+		    			 sc=c;
+		    		 }
 	    		 }
-	    		 else {
-	    			 aBase.theSpecies.add(newSpecies);
-	    			 System.out.println("Specie : "+ newSpecies + ", "+ vue.getBoxCategory().getName()); 
-	    		 }
+    		if(find)
+    			{
+    				break;
+    			}
+    		}
+
+    		 if(find)
+    		 {
+    			 JOptionPane.showMessageDialog(null, "The specie "+newSpecies.getName()+" is already in the database.","Warning",JOptionPane.WARNING_MESSAGE);
     		 }
-    	     
+    		 else
+    		 {
+    			 sc.addSpecie(newSpecies);
+    			 JOptionPane.showMessageDialog(null, "The specie "+newSpecies.getName()+" is created.","Information",JOptionPane.INFORMATION_MESSAGE);
+    		 }
     	 }
-		
 	}
 }
