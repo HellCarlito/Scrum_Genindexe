@@ -48,16 +48,12 @@ public class ControllerConsultCustomer {
                         focusOrder((Order) selected);
                     }else if(selected instanceof Sample){
                         focusSample((Sample) selected);
-                    }else if(selected.equals("Exit")){
-                        int dialogResult = JOptionPane.showConfirmDialog(null, "Do you really want to quit?", "Exit", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-                        if(dialogResult == 0) {
-                            //TODO: leave the module
-                        }
                     }
                 }
             }
         }
     }
+
 
     private void focusCustomer(Customer customer) {
         viewConsultCustomer.focus(customer);

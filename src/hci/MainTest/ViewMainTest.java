@@ -40,7 +40,7 @@ public class ViewMainTest extends JPanel{
         c.gridx++;
         add(btAddSpe, c);
         c.gridx++;
-        add(btVieSpe, c);
+//        add(btVieSpe, c);
 
         c.gridx = 0;
         c.gridy++;
@@ -68,10 +68,6 @@ public class ViewMainTest extends JPanel{
 
     public JButton getBtAddSpe() {
         return btAddSpe;
-    }
-
-    public JButton getBtVieSpe() {
-        return btVieSpe;
     }
 
     public JButton getBtAddCus() {

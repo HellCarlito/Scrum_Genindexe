@@ -7,6 +7,7 @@ import hci.ConsultCustomer.ControllerConsultCustomer;
 import hci.CreateCategory.ControlerCreateCategory;
 import hci.CreateCategory.ViewCreateCategory;
 import hci.CreateCustomer.ViewCreateCustomer;
+import hci.CreateOrder.ControllerCreateOrder;
 import hci.CreateSpecie.ViewCreateSpecie;
 import hci.MainWindow;
 
@@ -34,7 +35,6 @@ public class ControllerMainTest {
         v.getBtAddCus().addActionListener(new BtListener());
         v.getBtAddSpe().addActionListener(new BtListener());
         v.getBtAddCat().addActionListener(new BtListener());
-        v.getBtVieSpe().addActionListener(new BtListener());
 
         w.setContent(v);
     }
@@ -47,12 +47,10 @@ public class ControllerMainTest {
                 new ViewCreateCategory(i, w);
             }else if(e.getSource() == v.getBtAddSpe()){
                 new ViewCreateSpecie(i, w);
-            }else if(e.getSource() == v.getBtVieSpe()){
-
             }else if(e.getSource() == v.getBtAddCus()){
                 new ViewCreateCustomer(i, w);
             }else if(e.getSource() == v.getBtAddOrd()){
-
+                new ControllerCreateOrder(i, w);
             }else if(e.getSource() == v.getBtConCul()){
                 new ControllerConsultCustomer(w, i);
             }
