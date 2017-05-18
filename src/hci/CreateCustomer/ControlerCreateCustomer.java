@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import core.*;
 import hci.MainWindow;
+import hci.MainTest.*;
 
 public class ControlerCreateCustomer extends MouseAdapter
 {
@@ -59,7 +60,12 @@ public class ControlerCreateCustomer extends MouseAdapter
         					 vue.getTextPassword().getText(), vue.getTextEmail().getText());
     				 if (aBase.theCustomers.add(newCustomer))
     				 {
+    					 for (Customer c : aBase.theCustomers)
+    	    			 {
+    	    				 System.out.println(c.getName());
+    	    			 }
     					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Information",JOptionPane.INFORMATION_MESSAGE);
+    					 new ControllerMainTest(main, aBase);
     				 }
     				 else
     				 {
