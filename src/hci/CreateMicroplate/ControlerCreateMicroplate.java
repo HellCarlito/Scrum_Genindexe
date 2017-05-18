@@ -1,15 +1,11 @@
 package hci.CreateMicroplate;
 
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import core.IntegrationTest;
-import core.OrderStatus;
-import core.Sample;
+import core.Microplate;
 import core.SpecieCategory;
-import hci.CreateCategory.ViewCreateCategory;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ControlerCreateMicroplate implements ActionListener{
 
@@ -31,7 +27,7 @@ public class ControlerCreateMicroplate implements ActionListener{
 	public void actionPerformed(ActionEvent evt) {
 	if (evt.getSource() == vue.getButtonSubmit())
 	 {
-		 Mircoplate newMircoplate = new Mircoplate (vue.getTextNameCatSpecie().getText());    				 
+		 Microplate newMircoplate = new Microplate(vue.getTextNameCatSpecie().getText());
 		 aBase.theCategories.add(newCategory);
 		 for (SpecieCategory c : aBase.theCategories)
 		 {
