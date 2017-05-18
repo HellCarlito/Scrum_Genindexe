@@ -3,6 +3,7 @@ package hci.ConnectCustomer;
 import javax.swing.*;
 
 import core.CustomerBase;
+import core.IntegrationTest;
 import core.SpecieCategory;
 import hci.MainWindow;
 import hci.CreateCustomer.ControlerCreateCustomer;
@@ -28,7 +29,7 @@ public class ViewConnectCustomer extends JPanel
 	/**
 	 * Constructor
 	 */
-	public ViewConnectCustomer(CustomerBase base, MainWindow main)
+	public ViewConnectCustomer(IntegrationTest base, MainWindow main)
 	{
 		//Definition of fonts and colors 
 		labelConnect.setFont(new Font("Lucida Fax", Font.BOLD, 24));
@@ -109,8 +110,8 @@ public class ViewConnectCustomer extends JPanel
 		}
 		
 		public static void main(String[] args){
-			CustomerBase aBase = new CustomerBase();
-			MainWindow w = new MainWindow();
+			IntegrationTest aBase = new IntegrationTest();
+			MainWindow w = new MainWindow(aBase);
 			w.setContent(new ViewConnectCustomer(aBase,w));
 
 		}

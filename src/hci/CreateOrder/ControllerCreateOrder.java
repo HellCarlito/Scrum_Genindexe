@@ -94,8 +94,9 @@ public class ControllerCreateOrder {
     }
 
     public static void main(String[] args){
-        MainWindow w = new MainWindow();
-        ControllerCreateOrder controller = new ControllerCreateOrder(new IntegrationTest());
+        IntegrationTest i = new IntegrationTest();
+        MainWindow w = new MainWindow(i);
+        ControllerCreateOrder controller = new ControllerCreateOrder(i);
         w.setContent(controller.getView());
     }
 

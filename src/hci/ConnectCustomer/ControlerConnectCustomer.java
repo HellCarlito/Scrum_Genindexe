@@ -1,4 +1,5 @@
 package hci.ConnectCustomer;
+import core.IntegrationTest;
 import hci.MainWindow;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,13 +15,13 @@ public class ControlerConnectCustomer extends MouseAdapter
 	// attributes
     private ViewConnectCustomer vue;
     private Customer aCustomer;
-    private CustomerBase aBase;
+    private IntegrationTest aBase;
     private MainWindow main;
     
     /**
      * The Constructor for the listener
      */
-    public ControlerConnectCustomer(ViewConnectCustomer v,CustomerBase c, MainWindow m)
+    public ControlerConnectCustomer(ViewConnectCustomer v, IntegrationTest c, MainWindow m)
     {
     	vue=v;
     	aBase=c;

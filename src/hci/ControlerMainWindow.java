@@ -5,18 +5,22 @@ import java.awt.event.MouseEvent;
 
 import core.Customer;
 import core.CustomerBase;
+import core.IntegrationTest;
 import hci.ConnectCustomer.ViewConnectCustomer;
+import hci.MainTest.ControllerMainTest;
 
 public class ControlerMainWindow extends MouseAdapter
 {
 	// attributes
     private MainWindow main;
-    
+    private IntegrationTest integrationTest;
+
     /**
      * The Constructor for the listener
      */
-    public ControlerMainWindow(MainWindow m)
+    public ControlerMainWindow(MainWindow m, IntegrationTest integrationTest)
     {
+        this.integrationTest = integrationTest;
     	main=m;
     }
     
@@ -27,11 +31,11 @@ public class ControlerMainWindow extends MouseAdapter
      {
     	 if (evt.getSource() == main.getBack())
 		 {
-    		 new ControlerMainWindow(main);
+    		 new ControllerMainTest(main, integrationTest);
 		 }
     	 else if (evt.getSource() == main.getSignIn())
 		 {
-    		 main.setContent(new ViewConnectCustomer(main.getBase(),main));
+    		 main.setContent(new ViewConnectCustomer(integrationTest,main));
 		 }
      }
 }

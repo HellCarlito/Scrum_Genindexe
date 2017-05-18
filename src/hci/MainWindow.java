@@ -3,6 +3,7 @@ package hci;
 import javax.swing.*;
 import core.Customer;
 import core.CustomerBase;
+import core.IntegrationTest;
 import hci.ConnectCustomer.ControlerConnectCustomer;
 import hci.ConnectCustomer.ViewConnectCustomer;
 
@@ -19,13 +20,13 @@ public class MainWindow extends JFrame
     private JButton back;
     private JButton signIn;
     private Customer logCustomer;
-    private CustomerBase base;
     private ControlerMainWindow evt;
+    private IntegrationTest integrationTest;
 
-    public MainWindow(){
+    public MainWindow(IntegrationTest integrationTest){
         super("Genindexe");
+        this.integrationTest = integrationTest;
         logCustomer=null;
-        base = new CustomerBase();
         getContentPane().setLayout(new BorderLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -36,7 +37,8 @@ public class MainWindow extends JFrame
     	getContentPane().add(getHeader(), BorderLayout.NORTH);
         scrollpane = new JScrollPane(jp);
         getContentPane().add(scrollpane, BorderLayout.CENTER);
-        pack();
+        setSize(900,500);
+
     }
      
     public JPanel getHeader()
@@ -58,14 +60,14 @@ public class MainWindow extends JFrame
       	title.setForeground(new Color(89,148,60));
       	
       	//Listeners for buttons action
-        evt = new ControlerMainWindow(this);
+        evt = new ControlerMainWindow(this, integrationTest);
         back.addMouseListener(evt);
         signIn.addMouseListener(evt);
         
         header.add(back, BorderLayout.WEST);
         header.add(title, BorderLayout.CENTER);
         header.add(signIn, BorderLayout.EAST);
-        
+
         return header;
     }
     
@@ -78,12 +80,7 @@ public class MainWindow extends JFrame
     {
     	return signIn;
     }
-    
-    public CustomerBase getBase()
-    {
-    	return base;
-    }
-    
+
     public Customer getLogCustomer()
     {
     	return logCustomer;
@@ -93,12 +90,6 @@ public class MainWindow extends JFrame
     {
     	logCustomer=c;
     }
-    
-    public static void main(String[] args){
-        //"The real main" that will launch the app
-        //TODO: All the MVC modules should be able to run them self using a this way as FOLLOWING
-        //TODO: new ControllerMonModule(MainWindow app, IntegrationTest integrationTest)
-        //TODO:         create its view on the app.setContent and getting data from integrationTest
-    }
+
 
 }

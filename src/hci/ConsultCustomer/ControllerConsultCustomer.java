@@ -73,8 +73,8 @@ public class ControllerConsultCustomer {
 
 
     public static void main(String[] args){
-        MainWindow w = new MainWindow();
         IntegrationTest i = new IntegrationTest();
+        MainWindow w = new MainWindow(i);
         ControllerConsultCustomer c = new ControllerConsultCustomer(w,i);
         w.setSize(500,570);
     }

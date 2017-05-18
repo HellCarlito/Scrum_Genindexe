@@ -3,8 +3,10 @@ package hci.MainTest;
 import core.IntegrationTest;
 import core.Specie;
 import core.SpecieCategory;
+import hci.ConsultCustomer.ControllerConsultCustomer;
 import hci.CreateCategory.ControlerCreateCategory;
 import hci.CreateCategory.ViewCreateCategory;
+import hci.CreateCustomer.ViewCreateCustomer;
 import hci.CreateSpecie.ViewCreateSpecie;
 import hci.MainWindow;
 
@@ -47,11 +49,11 @@ public class ControllerMainTest {
             }else if(e.getSource() == v.getBtVieSpe()){
 
             }else if(e.getSource() == v.getBtAddCus()){
-
+                new ViewCreateCustomer(i, w);
             }else if(e.getSource() == v.getBtAddOrd()){
 
             }else if(e.getSource() == v.getBtConCul()){
-
+                new ControllerConsultCustomer(w, i);
             }
         }
     }
@@ -89,8 +91,9 @@ public class ControllerMainTest {
 
 
     public static void main(String[] args){
-        MainWindow m = new MainWindow();
-        new ControllerMainTest(m, new IntegrationTest());
+        IntegrationTest i = new IntegrationTest();
+        MainWindow m = new MainWindow(i);
+        new ControllerMainTest(m, i);
     }
 }
 

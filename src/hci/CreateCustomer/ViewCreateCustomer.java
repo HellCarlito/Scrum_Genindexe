@@ -347,7 +347,7 @@ public class ViewCreateCustomer extends JPanel
 		
 		public static void main(String[] args){
 			IntegrationTest aBase = new IntegrationTest();
-			MainWindow w = new MainWindow();
+			MainWindow w = new MainWindow(aBase);
 			w.setContent(new ViewCreateCustomer(aBase,w));
 		}
 	}
