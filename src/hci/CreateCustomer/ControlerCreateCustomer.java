@@ -12,17 +12,18 @@ public class ControlerCreateCustomer extends MouseAdapter
 	// attributes
     private ViewCreateCustomer vue;
     private Customer aCustomer;
-    private CustomerBase aBase;
+    private IntegrationTest aBase;
     private MainWindow main;
     
     /**
      * The Constructor for the listener
      */
-    public ControlerCreateCustomer(ViewCreateCustomer v,CustomerBase c, MainWindow m)
+    public ControlerCreateCustomer(ViewCreateCustomer v,IntegrationTest c, MainWindow m)
     {
     	vue=v;
     	aBase=c;
     	main=m;
+        m.setContent(vue);
     }
     
     /**
@@ -56,7 +57,7 @@ public class ControlerCreateCustomer extends MouseAdapter
         					 vue.getTextCorporateName().getText(), vue.getTextPhoneNumber().getText(),vue.getTextFaxNumber().getText(), vue.getTextCellPhone().getText(),
         					 vue.getTextInvoicingAddress().getText(),vue.getTextInvoicingContact().getText(),vue.getTextLogin().getText(),
         					 vue.getTextPassword().getText(), vue.getTextEmail().getText());
-    				 if (aBase.addCustomer(newCustomer))
+    				 if (aBase.theCustomers.add(newCustomer))
     				 {
     					 JOptionPane.showMessageDialog(null, "The new customer "+newCustomer.getName()+"("+newCustomer.getTown()+") is added.","Information",JOptionPane.INFORMATION_MESSAGE);
     				 }
