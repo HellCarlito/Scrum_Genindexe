@@ -35,7 +35,7 @@ public class ControlerMainWindow extends MouseAdapter
 		 }
     	 else if (evt.getSource() == main.getSignIn())
 		 {
-    		 main.setContent(new ViewConnectCustomer(integrationTest,main));
+    		 new ViewConnectCustomer(integrationTest,main);
 		 }
      }
 }

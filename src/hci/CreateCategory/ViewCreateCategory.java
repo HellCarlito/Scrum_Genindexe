@@ -48,26 +48,29 @@ public class ViewCreateCategory extends JPanel{
         c.weightx = 1;
         c.ipady = 30;
         c.ipadx = 90;
-        c.gridx = 2;
+        c.gridx = 0;
         c.gridy = 1;
+        c.gridwidth = 3;
         this.add(labelNewCategory, c);
+        c.gridwidth = 1;
         c.ipady = 30;
         c.ipadx = 90;
         c.gridx = 1;
         c.gridy = 2;
         this.add(labelNameCategory, c);
-        
-      //Position of text field
+
+        //Position of text field
         c.ipady = 10;
         c.ipadx = 300;
         c.gridx = 2;
         c.gridy = 2;
         this.add(textNameCategory, c);
-        
-      //Position of button
+
+        //Position of button
+        c.gridwidth = 3;
         c.ipady = 30;
         c.ipadx = 50;
-        c.gridx = 4;
+        c.gridx = 2;
         c.gridy = 5;
         c.anchor = GridBagConstraints.SOUTHEAST;
         this.add(buttonSubmit, c);

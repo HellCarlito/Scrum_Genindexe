@@ -44,7 +44,11 @@ public class ControlerConnectCustomer extends MouseAdapter
     				 main.setLogCustomer(aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText()));
     				 JOptionPane.showMessageDialog(null, "Yeeeee you are online !", "Information", JOptionPane.INFORMATION_MESSAGE);
     			 }
-    			 System.out.println(aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText()));
+    			 for (Customer c : aBase.theCustomers)
+    			 {
+    				 System.out.println(c.getName());
+    			 }
+    			 //System.out.println(aBase.signIn(vue.getTextLogin().getText(), vue.getTextPassword().getText()));
     		 } 
     		 else
     		 {

@@ -36,34 +36,46 @@ public class ControlerCreateCategory implements ActionListener{
     		 SpecieCategory newCategory = new SpecieCategory (word.capitalize(vue.getTextNameCatSpecie().getText()));    				 
     		 SpecieCategory sc = null;
     		 boolean find=false;
+    		 boolean findEmpty=false;
     		 
     		 for (SpecieCategory c : aBase.theCategories)
     		 {
-    			 if (newCategory.getName().equals(c.getName()))
+    			 if (newCategory.getName().toUpperCase().equals(c.getName().toUpperCase()))
     			 {
     				 find = true;
+    				 break;
+    			 }
+    			 else if (newCategory.getName().equals(""))
+    			 {
+    				 findEmpty=true;
     				 break;
     			 }
     			 else
     			 {
     				 sc=c;
     			 }
-    			 
-	    		if (find)
-	    		{
-	    			break;
-	    		}
     		 }
     		 
     		 if(find)
     		 {
     			 JOptionPane.showMessageDialog(null, "The category "+newCategory.getName()+" is already in the database.","Warning",JOptionPane.WARNING_MESSAGE); 
     		 }
+    		 else if (findEmpty)
+    		 {
+    			 JOptionPane.showMessageDialog(null, "Please fill the test field !!! ","Warning",JOptionPane.WARNING_MESSAGE); 
+    		 }
     		 else
     		 {
     			 aBase.theCategories.add(newCategory);
     			 JOptionPane.showMessageDialog(null, "The category "+newCategory.getName()+" is created.","Information",JOptionPane.INFORMATION_MESSAGE);
     		 }
-		 }
+
+             for (SpecieCategory c :
+                     aBase.theCategories) {
+                 System.out.println(c.getName());
+             }
+
+
+         }
 	}
 }
